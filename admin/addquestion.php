@@ -66,7 +66,7 @@
      
         <h2>Enter the question below</h2>
         <form class="form" action="#" method="post">
-          <textarea class="textarea form-control input-lg" rows="5" name="que"></textarea>
+          <textarea class="textarea form-control input-lg" rows="5" name="que"></textarea><br/><br/>
           <div class="rows">
             <div class="col-lg-6">
               <label class="">option 1 <input type="text" class="input-lg" name="opt1"></label>
@@ -75,6 +75,7 @@
               <label >option 2 <input type="text" class="input-lg" name="opt2"></label>
             </div>
           </div>
+		  <br/><br/>
           <div class="rows">
             <div class="col-lg-6">
               <label class="">option 3 <input type="text" class="input-lg" name="opt3"></label>
@@ -83,10 +84,10 @@
               <label >option 4 <input type="text" class="input-lg" name="opt4"></label>
             </div>
           </div>
-
+		<br/><br/><br/>
           <div class="rows">
             <div class="col-lg-3"></div>
-            
+			
               <label>Correct <input type="text" class="input-lg" name="optcr"></label>
            
             
@@ -99,7 +100,7 @@
         
         
         
-
+		<br/><br/>
       </div>
       <p>
           <a class="btn btn-lg btn-primary" href="#" role="button">Submit</a><br/>  
@@ -110,7 +111,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.min.js"></script>
+    <script src="jquery.min.js"></script>
     <!--script src="js/bootstrap.min.js" ></script -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!--script src="js/ie10-viewport-bug-workaround.js"--></script>
