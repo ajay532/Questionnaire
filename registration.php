@@ -9,12 +9,12 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="image.jpg">
+    <link rel="icon" href="image/photo.jpg">
 
     <title>Questionnair</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
@@ -41,18 +41,36 @@
 			<div class="col-lg-3"></div>
 			<div class="col-lg-6">
 		  <form class="form-signin">
-			<h2 class="form-signin-heading">Registration for Questionnair</h2>
-			<label for="inputEmail" class="sr-only">Name</label><br/>
-			<input type="text" class="form-control" required autofocus>
-			<label for="inputEmail" class="sr-only">Branch</label><br/>
-			<input type="text" class="form-control" required autofocus>
-			<label for="inputEmail" class="sr-only">Year</label><br/>
-			<input type="text" class="form-control" required autofocus>
+			<div align="center"><h2 class="form-signin-heading">Registration for Questionnair</h2><br/></div>
+			<label for="InputName">Enter Name</label>
+			<input type="text" class="form-control" required autofocus><br/>
+			<label for="InputName">Branch</label>
+			<input type="text" class="form-control" required autofocus><br/>
+			<label for="InputName">Year</label>
+			<input type="text" class="form-control" required autofocus><br/>
+			<label for="InputName">University</label>
+			<input type="text" class="form-control" required autofocus><br/>
+			<label for="InputName">University Roll-No.</label>
+			<input type="text" class="form-control" required autofocus><br/>
+			<label for="InputName">Address</label>
+			<textarea class="textarea form-control input-lg" rows="5" name="que"></textarea><br/>
+			<label for="InputName">College</label>
+			<input type="text" class="form-control" required autofocus><br/>
+			<label for="InputName">Email</label>
+			<input type="text" class="form-control" required autofocus><br/>
+			<label for="InputName">Contact No.</label>
+			<input type="text" class="form-control" required autofocus><br/>
+			<label for="InputName">Facebook-id</label>
+			<input type="text" class="form-control" required autofocus><br/>
 			
-			<label for="inputPassword" class="sr-only">Password</label><br/>
+			<label for="inputPassword" > Enter Password</label><br/>
 			<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 			<br/>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+			<label for="inputPassword" > Re-enter Password</label><br/>
+			<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+			<br/>
+			<br/>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
 		  </form>
 		  </div>
 		  <div class="col-lg-3"></div>
