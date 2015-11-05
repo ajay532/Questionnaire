@@ -7,12 +7,12 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="image/photo.jpg">
+    <link rel="icon" href="photo.jpg">
 
     <title>Questionnaire</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <!--link href="css/navbar.css" rel="stylesheet"-->
@@ -66,7 +66,7 @@
      
         <h2>Enter the question below</h2>
         <form class="form" action="#" method="post">
-          <textarea class="textarea form-control input-lg" rows="5" name="que"></textarea>
+          <textarea class="textarea form-control input-lg" rows="5" name="que"></textarea><br/><br/>
           <div class="rows">
             <div class="col-lg-6">
               <label class="">option 1 <input type="text" class="input-lg" name="opt1"></label>
@@ -75,6 +75,7 @@
               <label >option 2 <input type="text" class="input-lg" name="opt2"></label>
             </div>
           </div>
+		  <br/><br/>
           <div class="rows">
             <div class="col-lg-6">
               <label class="">option 3 <input type="text" class="input-lg" name="opt3"></label>
@@ -83,10 +84,10 @@
               <label >option 4 <input type="text" class="input-lg" name="opt4"></label>
             </div>
           </div>
-
+		<br/><br/><br/>
           <div class="rows">
             <div class="col-lg-3"></div>
-            
+			
               <label>Correct <input type="text" class="input-lg" name="optcr"></label>
            
             
@@ -99,7 +100,7 @@
         
         
         
-
+		<br/><br/>
       </div>
       <p>
           <a class="btn btn-lg btn-primary" href="#" role="button">Submit</a><br/>  
