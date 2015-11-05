@@ -12,7 +12,7 @@
     <title>Questionnaire</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <!--link href="css/navbar.css" rel="stylesheet"-->
