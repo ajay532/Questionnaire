@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,9 +41,14 @@
 			<div class="col-lg-3"></div>
 			<div class="col-lg-6">
 		  <form class="form-signin">
-			<h2 class="form-signin-heading">Please sign in</h2>
-			<label for="inputEmail" class="sr-only">Email address</label><br/>
-			<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+			<h2 class="form-signin-heading">Registration for Questionnair</h2>
+			<label for="inputEmail" class="sr-only">Name</label><br/>
+			<input type="text" class="form-control" required autofocus>
+			<label for="inputEmail" class="sr-only">Branch</label><br/>
+			<input type="text" class="form-control" required autofocus>
+			<label for="inputEmail" class="sr-only">Year</label><br/>
+			<input type="text" class="form-control" required autofocus>
+			
 			<label for="inputPassword" class="sr-only">Password</label><br/>
 			<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 			<br/>
