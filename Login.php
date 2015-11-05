@@ -8,12 +8,12 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="image.jpg">
+    <link rel="icon" href="image/photo.jpg">
 
     <title>Questionnair</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
@@ -40,13 +40,20 @@
 			<div class="col-lg-3"></div>
 			<div class="col-lg-6">
 		  <form class="form-signin">
-			<h2 class="form-signin-heading">Please sign in</h2>
-			<label for="inputEmail" class="sr-only">Email address</label><br/>
-			<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-			<label for="inputPassword" class="sr-only">Password</label><br/>
+			<h2 class="form-signin-heading">Please sign in</h2><br/><br/>
+			<label for="inputEmail" >Email address</label><br/>
+			<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus><br/><br/>
+			<label for="inputPassword">Password</label><br/>
 			<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-			<br/>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+			<br/><br/>
+			<div class="rows">
+				<div class="col-lg-6">
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+				</div>
+				<div class="col-lg-6">
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+				</div>
+			</div>
 		  </form>
 		  </div>
 		  <div class="col-lg-3"></div>
