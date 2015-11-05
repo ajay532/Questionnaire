@@ -41,11 +41,11 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
+              <li ><a href="#">About</a></li>
               <li><a href="#">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="./index_files/index.html">Questions <span class="sr-only">(current)</span></a></li>
+              <li class="active"><a href="#">Questions <span class="sr-only">(current)</span></a></li>
               <li><a href="#">Ranklist</a></li>
               <li><a href="#">Log Out</a></li>
             </ul>
@@ -53,6 +53,47 @@
         </div><!--/.container-fluid -->
       </nav>
 
+      
+      <nav>
+
+
+      
+      <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">1</a></li>
+              <li class="active"><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">3</a></li>
+            </ul>
+          </div>  
+      </nav>
+
+    
       <!-- Main component for a primary marketing message or call to action -->
       <nav>
         <ul class="pager">
@@ -100,7 +141,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <!--script src="js/bootstrap.min.js" ></script -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!--script src="js/ie10-viewport-bug-workaround.js"--></script>
