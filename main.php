@@ -79,7 +79,7 @@ if (!$con)
             <ul class="nav navbar-nav navbar-right">
               <li class="active"><a href="#">Questions <span class="sr-only">(current)</span></a></li>
               <li><a href="#">Ranklist</a></li>
-              <li><a href="#">Log Out</a></li>
+              <li><a href="logout.php">Log Out</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->

@@ -1,18 +1,27 @@
 <?php
-if($_POST[submit]){
-	$con=mysqli_connect("localhost","root","","questionnaire");
+$error='';
+if(isset($_POST[submit])) {
+	
+	include("connectdb.php");
 
-	// Check connection
-	if (mysqli_connect_errno($con))
-	{
-		echo "Failed to connect to MySQL: " . mysqli_connect_error();
-	}
 	$query="INSERT INTO registration values('$_POST[name]','$_POST[branch]',$_POST[year],'$_POST[university]',
 		'$_POST[college]',$_POST[rollno],'$_POST[email]',$_POST[contact],'$_POST[facebookid]','$_POST[address]','$_POST[password]')";
-	echo $query;
-	mysqli_query($con,$query);
-
-	mysqli_close($con);
+	//echo $query;
+	if($_POST[password]==$_POST[reenterpassword]){
+	     $res=mysqli_query($con,$query);
+       //echo "error is".mysqli_error($con);
+       if (mysqli_errno($con) == 1062) {
+              $error='Roll number already registere!!!';
+            }
+      if(!mysqli_errno($con))
+        header("location: index.php?status=1");
+        else if( mysqli_errno($con) != 1062)
+          $error=mysqli_error($con);
+  }
+  else{
+    $error="Password do not match";
+  }
+	
 }
 
 ?>
@@ -57,8 +66,11 @@ if($_POST[submit]){
   				<form class="form-signin" method="POST" action="#">
 
   					<h2 align="center">Registration for Questionnair</h2><br/>
-
-  					<label for="InputName">Enter Name</label><input type="text" name="name" class="form-control" placeholder="Enter name"><br/>	
+            <?php 
+              if($error!='')
+              echo "<div class='alert alert-danger'> $error</div><br>" ;
+              ?>
+  					<label for="InputName">Enter Name</label><input type="text" name="name" class="form-control" placeholder="Enter name" required><br/>	
   					<div class="col-lg-6">
   						<label for="Branch">Branch</label>
   						<select class = "select form-control" name="branch">
@@ -81,24 +93,24 @@ if($_POST[submit]){
   							<select>
   							</div>
   							<br/><br/>
-  							<label for="InputUniversity">University</label> <input type="text" class="form-control" name="university" placeholder="allahabad university"><br/>
-  							<label for="InputName">College</label> <input type="text" class="form-control" name="college" placeholder="allahabad dergree college"><br/>
+  							<label for="InputUniversity">University</label> <input type="text" class="form-control" name="university" placeholder="allahabad university" required><br/>
+  							<label for="InputName">College</label> <input type="text" class="form-control" name="college" placeholder="allahabad dergree college" required><br/>
 
   							<div class="form-group">
   								<div class="col-xs-4">
-  									<label for="InputRollNo">University Roll-No.</label> <input type="text" name="rollno" class="form-control" placeholder="1234567890" >  
+  									<label for="InputRollNo">University Roll-No.</label> <input type="text" name="rollno" class="form-control" placeholder="1234567890" required>  
   								</div>	
   								<div class="col-xs-8">
-  									<label for="InputName">Email</label> <input type="text" class="form-control" name="email" placeholder="abc@gmail.com"><br/>
+  									<label for="InputName">Email</label> <input type="text" class="form-control" name="email" placeholder="abc@gmail.com" required><br/>
   								</div>
   							</div>
   							<br/>
   							<div class="form-group">
   								<div class="col-xs-4">
-  									<label for="InputName">Contact No.</label> <input type="text" class="form-control" name="contact" placeholder="1234567890">						
+  									<label for="InputName">Contact No.</label> <input type="text" class="form-control" name="contact" placeholder="1234567890" required>						
   								</div>	
   								<div class="col-xs-8">
-  									<label for="InputName">Facebook-id</label>	<input type="text" class="form-control" name="facebookid" placeholder="facebook.com/____________"><br/>
+  									<label for="InputName">Facebook-id</label>	<input type="text" class="form-control" name="facebookid" placeholder="facebook.com/____________" required><br/>
   								</div>
   							</div>
 
@@ -119,6 +131,7 @@ if($_POST[submit]){
   							<br/>
 
   							<h1 align="center"><input class="btn btn-primary" type="submit" name="submit"/></h1>
+
   						</form>
   					</div>
   					<div class="col-lg-3"></div>
