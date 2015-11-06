@@ -43,7 +43,7 @@ if (!$con)
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="photo.jpg">
+    <link rel="icon" href="../image/photo.jpg">
 
     <title>Questionnaire</title>
 
@@ -105,54 +105,46 @@ if (!$con)
           <textarea class="textarea form-control input-lg" rows="5" name="que"></textarea><br/><br/>
           <div class="rows">
             <div class="col-lg-6">
-              <label class="">option 1 <input type="text" class="form-control" name="opt1"></label>
+              <label>option 1</label> <input type="text" class="form-control" name="opt1">
             </div>
             <div class="col-lg-6">
-              <label >option 2 <input type="text" class="input-lg" name="opt2"></label>
+              <label>option 2</label> <input type="text" class="form-control" name="opt2"></label>
             </div>
           </div>
 		  <br/><br/>
-          <div class="rows">
+        <div class="rows">
             <div class="col-lg-6">
-              <label class="">option 3 <input type="text" class="input-lg" name="opt3"></label>
+              <label>option 3</label> <input type="text" class="form-control" name="opt3">
             </div>
             <div class="col-lg-6">
-              <label >option 4 <input type="text" class="input-lg" name="opt4"></label>
+              <label >option 4 </label><input type="text" class="form-control" name="opt4">
             </div>
-          </div>
-		<br/><br/><br/>
-          <div class="rows">
-            <div class="col-lg-4"></div>
-			
-             <div class="col-lg-4">
-			  <label>Correct<select class="select" name="optcr"></label>
-			  <option value="opt1">option1</option>
-			  <option value="opt2">option2</option>
-			  <option value="opt3">option3</option>
-			  <option value="opt4">option4</option>
-			  </select>
-            </div>
-			 <div class="col-lg-4"></div>
-          </div>
-		  <div class="rows">
-			<div class="col-lg-5"></div>
-			<div class="col-lg-2">
-				<input type="submit" class="submit btn btn-primary"  name="submit" value="submit"></input>
-			</div>
-		  <div class="col-lg-5"></div>
-         </div>
-			
+        </div>
+        <br/>
+		<div class="col-md-6">
+			<label>Correct</label>
+			<select class="select form-control" data-width="100%" name="optcr">
+			<option value="opt1">option1</option>
+			<option value="opt2">option2</option>
+			<option value="opt3">option3</option>
+			<option value="opt4">option4</option>
+			</select>
+		</div>
+        <div class="col-md-6"></div>
+		<div class="col-md-6"></div>
+		<div class="col-md-6"></div>		
+			<h1 align="center"><input type="submit" class="submit btn btn-primary"  name="submit" value="submit" /></h1>
 		</form>
       </div>
 	  
 	  <div class="row" >
 		<?php
-		$result=mysql_query("select * from question");
-		while($row=mysql_fetch_array($result))
-		{
-			echo "$row[id] ";
-		    echo "$row[question]<br>";
-		}
+	//	$result=mysql_query("select * from question");
+	//	while($row=mysql_fetch_array($result))
+	//	{
+	//		echo "$row[id] ";
+	//	    echo "$row[question]<br>";
+	//	}
 		?>
 	</div>
 	  
