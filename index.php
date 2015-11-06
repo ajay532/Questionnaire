@@ -58,9 +58,9 @@
   					<?php 
   						if($error!='')
   							echo "<br><div class=\"alert alert-danger\" >$error</div>"; 
-  						if($_GET[status]==1)
+  						if(isset($_GET[status]) && $_GET[status]==1)
   							echo "<br><div class=\"alert alert-success\" >Successfully registered</div>";
-              if($_GET[status]==2)
+              if(isset($_GET[status]) && $_GET[status]==2)
                 echo "<br><div class=\"alert alert-danger\" >Session expired</div>";
 
 
