@@ -14,11 +14,10 @@
     <title>Questionnair</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
-
+    <link href="bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="ie-emulation-modes-warning.js"></script>
@@ -34,46 +33,78 @@
   <body>
 	
 		<div class="container">
-		<div class="rows">
-			<div class="col-lg-12" style="height:100px"></div>
-		</div>
+
 		<div class="rows">
 			<div class="col-lg-3"></div>
 			<div class="col-lg-6">
 		  <form class="form-signin">
-			<div align="center"><h2 class="form-signin-heading">Registration for Questionnair</h2><br/></div>
-			<label for="InputName">Enter Name</label>
-			<input type="text" class="form-control" required autofocus><br/>
-			<label for="InputName">Branch</label>
-			<input type="text" class="form-control" required autofocus><br/>
-			<label for="InputName">Year</label>
-			<input type="text" class="form-control" required autofocus><br/>
-			<label for="InputName">University</label>
-			<input type="text" class="form-control" required autofocus><br/>
-			<label for="InputName">University Roll-No.</label>
-			<input type="text" class="form-control" required autofocus><br/>
-			<label for="InputName">Address</label>
-			<textarea class="textarea form-control input-lg" rows="5" name="que"></textarea><br/>
-			<label for="InputName">College</label>
-			<input type="text" class="form-control" required autofocus><br/>
-			<label for="InputName">Email</label>
-			<input type="text" class="form-control" required autofocus><br/>
-			<label for="InputName">Contact No.</label>
-			<input type="text" class="form-control" required autofocus><br/>
-			<label for="InputName">Facebook-id</label>
-			<input type="text" class="form-control" required autofocus><br/>
+		  
+			<h2 align="center">Registration for Questionnair</h2><br/>
 			
-			<label for="inputPassword" > Enter Password</label><br/>
-			<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+			<label for="InputName">Enter Name</label><input type="text" name="name" class="form-control" placeholder="Enter name"><br/>	
+				<div class="col-lg-6">
+					<label for="Branch">Branch</label>
+					<select class = "select form-control" name="branch">
+						<option value="CSE">CSE</option>
+						<option value="CSE">EL</option>
+						<option value="CSE">EE</option>
+						<option value="CSE">CE</option>
+						<option value="CSE">IP</option>
+						<option value="CSE">ME</option>
+						<option value="CSE">IC</option>
+					</select>
+				</div>
+				<div class="col-lg-6">
+				<label for="Year">Year</label>
+				<select class = "select form-control" name="year" >
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>					
+				<select>
+				</div>
+			<br/><br/>
+			<label for="InputUniversity">University</label> <input type="text" class="form-control" name="university" placeholder="allahabad university"><br/>
+			<label for="InputName">College</label> <input type="text" class="form-control" name="college" placeholder="allahabad dergree college"><br/>
+			
+			<div class="form-group">
+				<div class="col-xs-4">
+					<label for="InputRollNo">University Roll-No.</label> <input type="text" name="rollno" class="form-control" placeholder="1234567890" >  
+				</div>	
+				<div class="col-xs-8">
+					<label for="InputName">Email</label> <input type="text" class="form-control" name="email" placeholder="abc@gmail.com"><br/>
+				</div>
+			</div>
 			<br/>
-			<label for="inputPassword" > Re-enter Password</label><br/>
-			<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+			<div class="form-group">
+				<div class="col-xs-4">
+				<label for="InputName">Contact No.</label> <input type="text" class="form-control" name="contact" placeholder="1234567890">						
+				</div>	
+				<div class="col-xs-8">
+					<label for="InputName">Facebook-id</label>	<input type="text" class="form-control" name="facebookid" placeholder="facebook.com/____________"><br/>
+				</div>
+			</div>
+			
+			<label for="InputName">Address</label>
+			<textarea class="textarea form-control input-lg" rows="5" name="address"></textarea><br/>
+			
+			<div class="form-group">
+				<div class="col-xs-6">
+					<label for="inputPassword" > Enter Password</label>
+					<input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+				</div>	
+				<div class="col-xs-6">
+					<label for="inputPassword" > Re-enter Password</label>
+					<input type="password" id="inputPassword" class="form-control" name="reenterpassword" placeholder="Password" required>
+				</div>
+			</div>
 			<br/>
 			<br/>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+
+			<h1 align="center"><input class="btn btn-primary" type="submit" name="submit"/></h1>
 		  </form>
-		  </div>
-		  <div class="col-lg-3"></div>
+		</div>
+		<div class="col-lg-3"></div>
 		  
 		</div>
 
@@ -84,3 +115,11 @@
     <script src="ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
+<?php
+	//if($_POST['submit']){
+		//$con=mysql_connect('localhost','root','questionnaire');
+	//	$query="INSERT into table($_POST['name'],$_POST['branch'],$_POST['year'],$_POST['college'],$_POST['university']);"
+		//mysql_query($con,$query);
+	//}
+	
+?>
