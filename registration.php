@@ -28,25 +28,6 @@ if(isset($_POST[submit])) {
   }
 	
 
-if($_POST[submit]){
-	$con=mysqli_connect("localhost","root","","questionnaire");
-
-
-
-
-	// Check connection
-	if (mysqli_connect_errno($con))
-	{
-		echo "Failed to connect to MySQL: " . mysqli_connect_error();
-	}
-	$query="INSERT INTO registration values('$_POST[name]','$_POST[branch]',$_POST[year],'$_POST[university]',
-		'$_POST[college]',$_POST[rollno],'$_POST[email]',$_POST[contact],'$_POST[facebookid]','$_POST[address]','$_POST[password]')";
-	echo $query;
-	mysqli_query($con,$query);
-
-	mysqli_close($con);
-}
-
 
 	mysqli_close($con);
 

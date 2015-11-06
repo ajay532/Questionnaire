@@ -49,7 +49,7 @@
   			<div class="col-lg-3"></div>
   			
   			<div class="col-lg-6">
-  				<form class="form-signin" action="#" method="post">
+  				<form class="form-signin" action="index.php" method="post">
   					<h2 class="form-signin-heading">Please sign in</h2><br/><br/>
   					<label for="inputEmail" >Roll no</label><br/>
   					<input type="number" id="inputEmail" class="form-control" placeholder="1311010024" name="user"><br/><br/>
