@@ -57,9 +57,11 @@
   					<input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password">
   					<?php 
   						if($error!='')
-  							echo "<div class=\"alert alert-danger\" >$error</div>"; 
-  						if(isset($_GET[status]))
+  							echo "<br><div class=\"alert alert-danger\" >$error</div>"; 
+  						if($_GET[status]==1)
   							echo "<br><div class=\"alert alert-success\" >Successfully registered</div>";
+              if($_GET[status]==2)
+                echo "<br><div class=\"alert alert-danger\" >Session expired</div>";
 
 
   					?>

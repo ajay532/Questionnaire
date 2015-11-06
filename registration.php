@@ -1,5 +1,5 @@
 <?php
-<<<<<<< HEAD
+
 $error='';
 if(isset($_POST[submit])) {
 	
@@ -23,13 +23,13 @@ if(isset($_POST[submit])) {
     $error="Password do not match";
   }
 	
-=======
+
 if($_POST[submit]){
 	$con=mysqli_connect("localhost","root","","questionnaire");
-<<<<<<< HEAD
-=======
 
->>>>>>> 112349a0c857143de90dc0dcef39ba509dfacaef
+
+
+
 	// Check connection
 	if (mysqli_connect_errno($con))
 	{
@@ -39,16 +39,16 @@ if($_POST[submit]){
 		'$_POST[college]',$_POST[rollno],'$_POST[email]',$_POST[contact],'$_POST[facebookid]','$_POST[address]','$_POST[password]')";
 	echo $query;
 	mysqli_query($con,$query);
-<<<<<<< HEAD
-	mysqli_close($con);
-}
-=======
 
 	mysqli_close($con);
->>>>>>> c292bd62f4af1b78a09be29aa2af5764871a2d72
 }
 
->>>>>>> 112349a0c857143de90dc0dcef39ba509dfacaef
+
+	mysqli_close($con);
+
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -169,9 +169,8 @@ if($_POST[submit]){
   			<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   			<script src="ie10-viewport-bug-workaround.js"></script>
   		</body>
-<<<<<<< HEAD
-  		</html>
-=======
+
   		</html>
 
->>>>>>> 112349a0c857143de90dc0dcef39ba509dfacaef
+  		</html>
+

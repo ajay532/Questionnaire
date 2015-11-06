@@ -1,4 +1,9 @@
 <?php
+
+session_start();
+  if(!isset($_SESSION['user']))
+    header("location: index.php?status=2");
+
 $con = mysql_connect('localhost','root','') or die("Unable to connect to MySQL");
 $a=mysql_select_db('questionnaire', $con) or die("Unable to select the database");
 $result1=mysql_query("select * from question");
