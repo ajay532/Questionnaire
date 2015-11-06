@@ -1,3 +1,35 @@
+<?php
+$con = mysql_connect('localhost','root','') or die("Unable to connect to MySQL");
+$a=mysql_select_db('questionnaire', $con) or die("Unable to select the database");
+$result1=mysql_query("select * from question");
+
+?>
+
+<?php
+if(isset($_POST['submit']))
+{
+error_reporting(E_ALL ^ E_DEPRECATED);
+//date_default_timezone_set('Asia/Kolkata');
+
+if (!$con)
+  {
+    die('Could not connect: ' . mysql_error());
+  }
+
+  $option=$_POST['optionsRadio'];
+  
+  
+  
+							  $sql=mysql_query("INSERT INTO `answer` VALUES('$option')");
+							  if($sql)
+							  echo "Answere Submited";
+							  else
+							  echo mysql_error();
+  
+}
+?>
+
+
 <!DOCTYPE html>
 <!-- saved from url=(0040)http://getbootstrap.com/examples/navbar/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -7,7 +39,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="photo.jpg">
+    <link rel="icon" href="image/photo.jpg">
 
     <title>Questionnaire</title>
 
@@ -60,81 +92,78 @@
       
       <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">1</a></li>
-              <li class="active"><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">3</a></li>
+			<?php
+			$result1=mysql_query("select * from question");
+			while($row=mysql_fetch_array($result1))
+			{
+				 echo " <li class=\"active\"><a href=\"main.php?data=$row[id]\">".$row['id']."</a></li>
+				";
+			}
+			?>
+              
             </ul>
           </div>  
       </nav>
-
+	  
+			<?php
+			$data=$_GET['data'];  
+			$result2=mysql_query("select * from question where id='$data'");
+			while($row=mysql_fetch_array($result2))
+			{
+				$rown=$row['id'];
+				$rown1=$rown-1;
+				$rown2=$rown+1;
+				
+			echo "
     
       <!-- Main component for a primary marketing message or call to action -->
       <nav>
-        <ul class="pager">
-          <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
-          <li class="next"><a href="#">Next <span aria-hidden="true">&rarr;</span></a></li>
+        <ul class=\"pager\">
+
+          <li class=\"previous\"><a href=\"main.php?data=$rown1\"><span aria-hidden=\"true\">&larr;</span> Previous</a></li>
+          <li class=\"next\"><a href=\"main.php?data=$rown2\">Next <span aria-hidden=\"true\">&rarr;</span></a></li>
         </ul>
       </nav>
-      <div class="jumbotron">
-     
-        <h2>Question No.1</h2>
-        <p>Give the value of 2 + 2.</p>
-        <div class="radio">
+      <div class=\"jumbotron\">
+	  
+		
+        <h2>Question No.".$row['id']."</h2>
+        <p>".$row['question']."</p>
+		<form name=\"form1\" method=\"post\" action=\"#\">
+        <div class=\"radio\">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-            4
+            <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios2\" value=\"opt1\">
+            ".$row['opt1']."
           </label>
         </div>
-        <div class="radio">
+        <div class=\"radio\">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-            5
+            <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios2\" value=\"opt2\">
+            ".$row['opt2']."
           </label>
         </div>
-        <div class="radio">
+        <div class=\"radio\">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-            6
+            <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios2\" value=\"opt3\">
+            ".$row['opt3']."
           </label>
         </div>
-        <div class="radio">
+        <div class=\"radio\">
           <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-            7
+            <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios2\" value=\"opt4\">
+            ".$row['opt4']."
           </label>
         </div>
         
 
       </div>
       <p>
-          <a class="btn btn-lg btn-primary" href="#" role="button">Submit</a><br/>  
+          <input type=\"submit\" class=\"submit btn btn-primary\"  name=\"submit\" value=\"submit\"></input><br/>  
         </p>
+		</form>
+			";
+			}
+		?>
     </div> <!-- /container -->
 
 
