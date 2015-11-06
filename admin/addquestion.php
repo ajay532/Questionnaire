@@ -94,14 +94,12 @@ if (!$con)
 
 
       <nav>
-        <ul class="pager">
-          <li class="next"><a href="index.html">Next <span aria-hidden="true">&rarr;</span></a></li>
-        </ul>
+       
       </nav>
       <div class="jumbotron">
      
         <h2>Enter the question below</h2>
-        <form class="form" action="#" method="post">
+        <form class="form" action="" method="post">
           <textarea class="textarea form-control input-lg" rows="5" name="que"></textarea><br/><br/>
           <div class="rows">
             <div class="col-lg-6">
@@ -139,12 +137,27 @@ if (!$con)
 	  
 	  <div class="row" >
 		<?php
-	//	$result=mysql_query("select * from question");
-	//	while($row=mysql_fetch_array($result))
-	//	{
-	//		echo "$row[id] ";
-	//	    echo "$row[question]<br>";
-	//	}
+		echo "
+		<table class=\"table\" border=\"1\">
+		<caption align=\"top\">Previous Questions</caption>
+		";
+		$result=mysql_query("select * from question");
+		while($row=mysql_fetch_array($result))
+		{
+			echo "
+			<tr>
+			<td>
+			 ".$row['id'].";
+			</td>
+			<td>
+		     ".$row['question'].";
+			</td>
+			</tr>
+			";
+		}
+		echo "
+		</table>
+		";
 		?>
 	</div>
 	  

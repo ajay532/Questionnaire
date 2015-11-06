@@ -10,18 +10,19 @@ if(isset($_POST['submit']))
 {
 error_reporting(E_ALL ^ E_DEPRECATED);
 //date_default_timezone_set('Asia/Kolkata');
-
 if (!$con)
   {
     die('Could not connect: ' . mysql_error());
   }
 
-  $option=$_POST['optionsRadio'];
+  $option=$_POST['optionsRadios'];
+  $ques="q"."$_GET[data]";
+  $roll=$_GET['roll'];
   
-  
-  
-							  $sql=mysql_query("INSERT INTO `answer` VALUES('$option')");
-							  if($sql)
+							
+							$sql1="UPDATE answer SET $ques='$option' WHERE rollno='$roll' ";
+							$sql=mysql_query($sql1);
+							  if($sql1)
 							  echo "Answere Submited";
 							  else
 							  echo mysql_error();
@@ -96,7 +97,8 @@ if (!$con)
 			$result1=mysql_query("select * from question");
 			while($row=mysql_fetch_array($result1))
 			{
-				 echo " <li class=\"active\"><a href=\"main.php?data=$row[id]\">".$row['id']."</a></li>
+				$query="main.php?roll="."$_GET[roll]"."&data="."$row[id]";
+				 echo " <li class=\"active\"><a href=\"$query\">".$row['id']."</a></li>
 				";
 			}
 			?>
@@ -113,6 +115,8 @@ if (!$con)
 				$rown=$row['id'];
 				$rown1=$rown-1;
 				$rown2=$rown+1;
+				$queryp="main.php?roll="."$_GET[roll]"."&data="."$rown1";
+				$queryn="main.php?roll="."$_GET[roll]"."&data="."$rown2";
 				
 			echo "
     
@@ -120,8 +124,8 @@ if (!$con)
       <nav>
         <ul class=\"pager\">
 
-          <li class=\"previous\"><a href=\"main.php?data=$rown1\"><span aria-hidden=\"true\">&larr;</span> Previous</a></li>
-          <li class=\"next\"><a href=\"main.php?data=$rown2\">Next <span aria-hidden=\"true\">&rarr;</span></a></li>
+          <li class=\"previous\"><a href=\"$queryp\"><span aria-hidden=\"true\">&larr;</span> Previous</a></li>
+          <li class=\"next\"><a href=\"$queryp\">Next <span aria-hidden=\"true\">&rarr;</span></a></li>
         </ul>
       </nav>
       <div class=\"jumbotron\">
