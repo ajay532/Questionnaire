@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 06, 2015 at 11:07 AM
+-- Generation Time: Nov 06, 2015 at 07:46 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -55,7 +55,11 @@ CREATE TABLE IF NOT EXISTS `answer` (
 --
 
 INSERT INTO `answer` (`rollno`, `q1`, `q2`, `q3`, `q4`, `q5`, `q6`, `q7`, `q8`, `q9`, `q10`, `q11`, `q12`, `q13`, `q14`, `q15`, `q16`, `q17`, `q18`, `q19`) VALUES
-(0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+(0, '', 'opt4', '', '', '', 'opt3', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(2, '', '', '', '', '', 'opt2', '', 'opt3', '', '', '', '', '', '', '', '', '', '', ''),
+(4, '', '', '', '', '', 'opt2', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(5, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -72,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `question` (
   `opt4` varchar(1000) NOT NULL,
   `optcr` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `question`
@@ -85,7 +89,8 @@ INSERT INTO `question` (`id`, `question`, `opt1`, `opt2`, `opt3`, `opt4`, `optcr
 (4, 'How many days in a week?', '3', '4', '1', '7', 'opt4'),
 (5, 'who is yur favourite actor ?', 'varun dhavan', 'shahrukh khan', 'salman khan', 'amir khan', 'opt3'),
 (6, 'who is yur favourite actor ?', 'varun dhavan', 'shahrukh khan', 'salman khan', 'amir khan', 'opt3'),
-(7, 'who is yur favourite actor ?', 'varun dhavan', 'shahrukh khan', 'salman khan', 'amir khan', 'opt3');
+(7, 'who is yur favourite actor ?', 'varun dhavan', 'shahrukh khan', 'salman khan', 'amir khan', 'opt3'),
+(8, 'Shubham', 'lnl', 'jjk', 'j jk k', 'jj j', 'opt1');
 
 -- --------------------------------------------------------
 
