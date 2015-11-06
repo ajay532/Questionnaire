@@ -22,7 +22,9 @@ if (!$con)
 
   $option=$_POST['optionsRadios'];
   $ques="q"."$_GET[data]";
-  $roll=$_GET['roll'];
+  
+  $roll=$_SESSION['user'];
+  //$roll=$_GET['roll'];
   
 							
 							$sql1="UPDATE answer SET $ques='$option' WHERE rollno='$roll' ";
@@ -102,7 +104,7 @@ if (!$con)
 			$result1=mysql_query("select * from question");
 			while($row=mysql_fetch_array($result1))
 			{
-				$query="main.php?roll="."$_GET[roll]"."&data="."$row[id]";
+				$query="main.php?data="."$row[id]";
 				 echo " <li class=\"active\"><a href=\"$query\">".$row['id']."</a></li>
 				";
 			}
@@ -120,8 +122,8 @@ if (!$con)
 				$rown=$row['id'];
 				$rown1=$rown-1;
 				$rown2=$rown+1;
-				$queryp="main.php?roll="."$_GET[roll]"."&data="."$rown1";
-				$queryn="main.php?roll="."$_GET[roll]"."&data="."$rown2";
+				$queryp="main.php?data="."$rown1";
+				$queryn="main.php?data="."$rown2";
 				
 			echo "
     
