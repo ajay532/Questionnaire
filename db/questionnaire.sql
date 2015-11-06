@@ -1,20 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.5
+-- version 4.4.14.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 06, 2015 at 07:46 PM
--- Server version: 5.5.16
--- PHP Version: 5.3.8
+-- Generation Time: Nov 06, 2015 at 07:55 PM
+-- Server version: 10.0.21-MariaDB
+-- PHP Version: 5.6.13
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `questionnaire`
@@ -46,8 +46,7 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `q16` varchar(10) NOT NULL,
   `q17` varchar(10) NOT NULL,
   `q18` varchar(10) NOT NULL,
-  `q19` varchar(10) NOT NULL,
-  PRIMARY KEY (`rollno`)
+  `q19` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -55,11 +54,7 @@ CREATE TABLE IF NOT EXISTS `answer` (
 --
 
 INSERT INTO `answer` (`rollno`, `q1`, `q2`, `q3`, `q4`, `q5`, `q6`, `q7`, `q8`, `q9`, `q10`, `q11`, `q12`, `q13`, `q14`, `q15`, `q16`, `q17`, `q18`, `q19`) VALUES
-(0, '', 'opt4', '', '', '', 'opt3', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(2, '', '', '', '', '', 'opt2', '', 'opt3', '', '', '', '', '', '', '', '', '', '', ''),
-(4, '', '', '', '', '', 'opt2', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(5, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+(0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -68,15 +63,14 @@ INSERT INTO `answer` (`rollno`, `q1`, `q2`, `q3`, `q4`, `q5`, `q6`, `q7`, `q8`, 
 --
 
 CREATE TABLE IF NOT EXISTS `question` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `question` varchar(1000) NOT NULL,
   `opt1` varchar(1000) NOT NULL,
   `opt2` varchar(1000) NOT NULL,
   `opt3` varchar(1000) NOT NULL,
   `opt4` varchar(1000) NOT NULL,
-  `optcr` varchar(1000) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+  `optcr` varchar(1000) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `question`
@@ -89,8 +83,7 @@ INSERT INTO `question` (`id`, `question`, `opt1`, `opt2`, `opt3`, `opt4`, `optcr
 (4, 'How many days in a week?', '3', '4', '1', '7', 'opt4'),
 (5, 'who is yur favourite actor ?', 'varun dhavan', 'shahrukh khan', 'salman khan', 'amir khan', 'opt3'),
 (6, 'who is yur favourite actor ?', 'varun dhavan', 'shahrukh khan', 'salman khan', 'amir khan', 'opt3'),
-(7, 'who is yur favourite actor ?', 'varun dhavan', 'shahrukh khan', 'salman khan', 'amir khan', 'opt3'),
-(8, 'Shubham', 'lnl', 'jjk', 'j jk k', 'jj j', 'opt1');
+(7, 'who is yur favourite actor ?', 'varun dhavan', 'shahrukh khan', 'salman khan', 'amir khan', 'opt3');
 
 -- --------------------------------------------------------
 
@@ -109,10 +102,50 @@ CREATE TABLE IF NOT EXISTS `registration` (
   `contact` int(11) NOT NULL,
   `facebookid` varchar(1000) NOT NULL,
   `address` varchar(1000) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  PRIMARY KEY (`rollno`)
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `registration`
+--
+
+INSERT INTO `registration` (`name`, `branch`, `year`, `university`, `college`, `rollno`, `email`, `contact`, `facebookid`, `address`, `password`) VALUES
+('kripa', 'CSE', 1, 'AU', 'IERT allahabad', 123, 'abc@gmail.com', 1234567, 'facebook.com/iert', 'hknk', '12345'),
+('kripa', 'CSE', 1, 'AU', 'IERT allahabad', 12345, 'abc@gmail.com', 12345675, 'facebook.com/iert', 'hknk', '123'),
+('kripa', 'CSE', 1, 'iertq', 'iertq', 12345678, 'abc@gmail.com', 2147483647, 'skdfv nskd', 'adlkfnsd', '1234'),
+('kripa', 'CSE', 1, 'uptu', 'IERT', 1311010024, 'iamkripashanker@gmail.com', 7054, 'facebook.com/iert', 'satsang mandir arail naini', '123');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `answer`
+--
+ALTER TABLE `answer`
+  ADD PRIMARY KEY (`rollno`);
+
+--
+-- Indexes for table `question`
+--
+ALTER TABLE `question`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `registration`
+--
+ALTER TABLE `registration`
+  ADD PRIMARY KEY (`rollno`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `question`
+--
+ALTER TABLE `question`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
