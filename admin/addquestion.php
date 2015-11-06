@@ -1,3 +1,39 @@
+<!--#####################################################################################################################################
+<?php
+$con = mysql_connect('localhost','root','') or die("Unable to connect to MySQL");
+$a=mysql_select_db('questionnaire', $con) or die("Unable to select the database");
+
+?>
+<?php
+if(isset($_POST['submit']))
+{
+error_reporting(E_ALL ^ E_DEPRECATED);
+//date_default_timezone_set('Asia/Kolkata');
+
+if (!$con)
+  {
+    die('Could not connect: ' . mysql_error());
+  }
+
+  $q=$_POST['que'];
+  $o1=$_POST['opt1'];
+  $o2=$_POST['opt2'];
+  $o3=$_POST['opt3'];
+  $o4=$_POST['opt4'];
+  $oc=$_POST['optcr'];
+  
+  
+							  $sql=mysql_query("INSERT INTO `question` VALUES('','$q','$o1','$o2','$o3','$o4','$oc')");
+							  if($sql)
+							  echo "Question Inserted";
+							  else
+							  echo mysql_error();
+  
+}
+?>
+
+##########################################################################################################################################-->
+
 <!DOCTYPE html>
 <!-- saved from url=(0040)http://getbootstrap.com/examples/navbar/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -69,7 +105,7 @@
           <textarea class="textarea form-control input-lg" rows="5" name="que"></textarea><br/><br/>
           <div class="rows">
             <div class="col-lg-6">
-              <label class="">option 1 <input type="text" class="input-lg" name="opt1"></label>
+              <label class="">option 1 <input type="text" class="form-control" name="opt1"></label>
             </div>
             <div class="col-lg-6">
               <label >option 2 <input type="text" class="input-lg" name="opt2"></label>
@@ -86,25 +122,40 @@
           </div>
 		<br/><br/><br/>
           <div class="rows">
-            <div class="col-lg-3"></div>
+            <div class="col-lg-4"></div>
 			
-              <label>Correct <input type="text" class="input-lg" name="optcr"></label>
-           
-            
+             <div class="col-lg-4">
+			  <label>Correct<select class="select" name="optcr"></label>
+			  <option value="opt1">option1</option>
+			  <option value="opt2">option2</option>
+			  <option value="opt3">option3</option>
+			  <option value="opt4">option4</option>
+			  </select>
+            </div>
+			 <div class="col-lg-4"></div>
           </div>
-          
-<!--#####################################################################################################################################
-
-
-##########################################################################################################################################-->
-        
-        
-        
-		<br/><br/>
+		  <div class="rows">
+			<div class="col-lg-5"></div>
+			<div class="col-lg-2">
+				<input type="submit" class="submit btn btn-primary"  name="submit" value="submit"></input>
+			</div>
+		  <div class="col-lg-5"></div>
+         </div>
+			
+		</form>
       </div>
-      <p>
-          <a class="btn btn-lg btn-primary" href="#" role="button">Submit</a><br/>  
-        </p>
+	  
+	  <div class="row" >
+		<?php
+		$result=mysql_query("select * from question");
+		while($row=mysql_fetch_array($result))
+		{
+			echo "$row[id] ";
+		    echo "$row[question]<br>";
+		}
+		?>
+	</div>
+	  
     </div> <!-- /container -->
 
 
@@ -115,6 +166,6 @@
     <!--script src="js/bootstrap.min.js" ></script -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!--script src="js/ie10-viewport-bug-workaround.js"--></script>
-  
+	
 
 </body></html>
