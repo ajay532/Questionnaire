@@ -39,21 +39,22 @@
 		<div class="rows">
 			<div class="col-lg-3"></div>
 			<div class="col-lg-6">
-		  <form class="form-signin">
-			<h2 class="form-signin-heading">Please sign in</h2><br/><br/>
-			<label for="inputEmail" >Email address</label><br/>
-			<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus><br/><br/>
-			<label for="inputPassword">Password</label><br/>
-			<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-			<br/><br/>
-			<div class="rows">
-				<div class="col-lg-6">
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+			<form class="form-signin" method="post">
+				<h2 class="form-signin-heading">Please sign in</h2><br/><br/>
+				<label for="inputEmail" >Email address</label><br/>
+				<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus><br/><br/>
+				<label for="inputPassword">Password</label><br/>
+				<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+				<br/><br/>
+				<div class="rows">
+					<div class="col-lg-6">
+						<input type="submit" class="btn btn-primary btn-block" name="signin" value="Sign in" />
+
+					</div>
+					<div class="col-lg-6">
+						<a href="registration.php" class="btn btn-primary btn-block" role="button">Register</a>
+					</div>
 				</div>
-				<div class="col-lg-6">
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-				</div>
-			</div>
 		  </form>
 		  </div>
 		  <div class="col-lg-3"></div>
@@ -61,7 +62,7 @@
 		</div>
 
 		</div> <!-- /container -->
-	
+	<!--------------------------- -------------------------------------------------------------------------->
 	
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="ie10-viewport-bug-workaround.js"></script>
