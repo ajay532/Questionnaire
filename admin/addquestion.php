@@ -72,18 +72,18 @@ if (!$con)
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Questionnaire</a>
+            <a class="navbar-brand" href="../home.php">Questionnaire</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="#">Home <span class="glyphicon glyphicon-home"></a></li>
+              <li><a href="../home.php">Home <span class="glyphicon glyphicon-home"></a></li>
               <li><a href="#">About <span class="glyphicon glyphicon-user"></span></a></li>
               <li><a href="#">Contact <span class="glyphicon glyphicon-earphone"></span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li class="active"><a href="./index_files/index.html">Questions <span class="glyphicon glyphicon-dashboard"><span class="sr-only">(current)</span></a></li>
-              <li><a href="#">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
-              <li><a href="#">Log Out <span class="glyphicon glyphicon-off"></span></a></li>
+              <li><a href="../ranklist.php">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
+              <li><a href="../logout.php">Log Out <span class="glyphicon glyphicon-off"></span></a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->

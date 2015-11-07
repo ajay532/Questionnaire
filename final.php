@@ -26,7 +26,13 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+				
+	<style type="text/css">
+		#form{
+			background-color:#adf296;
+			margin-bottom:20px;
+		}
+	</style>
   </head>
 
   <body>
@@ -45,7 +51,7 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home <span class="glyphicon glyphicon-home"></span></a></li>
+              <li><a href="home.php">Home <span class="glyphicon glyphicon-home"></span></a></li>
               <li ><a href="#">About <span class="glyphicon glyphicon-user"></span></a></li>
               <li><a href="#">Contact <span class="glyphicon glyphicon-earphone"></span></a></li>
             </ul>
@@ -58,59 +64,57 @@
         </div><!--/.container-fluid -->
       </nav>
 	  
-		<div style="background: #10bbf1" class="jumbotron">
-			<font color="white"><h1 align="center">Welcome to Questionnaire</h1><br>
-			<h1 align="center"><a href="main.php?data=1" class="btn btn-lg btn-primary" >Start Test</a></h1>
-			
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			
-				<h3><ul class="nav navbar-nav navbar-right">
-						<li><a class="page-scroll" href="#info"><font color="black">Info &nbsp;</font></a></li>
-						<li><a class="page-scroll" href="#rules"><font color="black">Rules &nbsp;</font></a></li>
-						<li><a class="page-scroll" href="#scoring"><font color="black">Scoring </font></a></li>
-					</ul>
-				</h3>	
-			</div>
-			
-			</font>
+				
+	<form class="form-signin">
 		
-		</div> <!-- jumbotron-->
-		<section id="info">
-		<div style="background: #10f1f1" class="jumbotron">
-			<h1 align="center"> Info <h1>
-		<p>
-		Questionnaire is a CMS(content management system) where we can organize online tests.<br\>
-		
-		</p>
+		<div id="form" class="col-lg-8">
+			<h1 align="center">Feedback</h1>
+			<label>What you like on this test. </label><br>
+			<input type="text" class="form-control" name="like-part" /><br>
+			<label>Do you face any problem during test. </label>
+			<input type="radio"  name="prob" value="yes"> &nbsp;Yes&nbsp;
+			<input type="radio"  name="prob" value="no"> &nbsp;No
+			<br><br><label>If yes then mention here which type of problem you face. </label>
+			<input type="text" class="form-control" name="que" /><br>
+			<br><label>how was questions. </label><br>
+			<input type="text" class="form-control" name="que" /><br>
+			<br><label>how was your experience in Questionnaire. </label><br>
+			<input type="text" class="form-control" name="exp" /><br>
+			<br><label>How we can improve this test(if you have any suggestion). </label><br>
+			<textarea class="textarea form-control input-lg" rows="5" name="sug"></textarea><br>
+			<input type="submit" class="btn btn-default" value="Submit"/><br>
+			<h2 align="center"><label>Your result</h3></label><br>
+			<table class="table" border="1px">
+				<thead>
+				<tr class="danger">
+					<th>#</th>
+					<th>Roll No.</th>
+					<th>Name</th>
+					<th>College Name</th>
+					<th>Branch</th>
+					<th>Correct Answers</th>
+					<th>Wrong Answers</th>
+					<th>Total Points</th>		
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="warning">
+					<td>1</td>
+					<td>1223234</td>
+					<td>shubham singh</td>
+					<td>IERT</td>
+					<td>CSE</td>
+					<td>30</td>
+					<td>0</td>
+					<td>30</td>		
+				</tr>
+				</tbody>
+			</table>
+			<br><label>Click here to see </label>
+			<a href="ranklist.php">Ranklist</a><br><br>
 		</div>
-		</section>
-		<section id="rules">
-		<div style="background: #10f1aa" class="jumbotron">
-			<h1 align="center"> Rules <h1>
-		<p><h4>
-		<ul type="disk">
-			<li>Please refrain from discussing strategy during the contest.</li><br>
-			<li>You can participate only once in test.</li><br>
-			<li>Test contains 30 questions.</li><br>
-			<li>You will have 60 minutes to complete your test.</li><br>
-			<li>Questionnaire admins decision will be final.</li>
-		</ul>
-		</h4>
-		</p>
-		</div>
-		</section>
-		<section id="scoring">
-		<div style="background: #f1a1a1" class="jumbotron">
-			<h1 align="center"> Scoring <h1>
-			<p><h4>
-			<ul type="disk">
-				<li>Eery questions contains equal points.</li><br>
-				<li>No penality for wrong answers.</li><br>
-				<li>Questionnaire admins decision will be final.</li>
-			</ul>
-			</h4></p>
-		</div>
-		</section>
-	</div><!--  container -->	
+		<div class="col-lg-4"></div>
+	</form>
+	
 </body>
-</html>
+</html>	  
