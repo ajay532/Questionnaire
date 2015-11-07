@@ -1,7 +1,7 @@
 <?php
 
 $error='';
-if(isset($_POST[submit])) {
+if(isset($_POST['submit'])) {
 	
 	include("connectdb.php");
 
