@@ -1,7 +1,7 @@
 <?php
 
 $error='';
-if(isset($_POST[submit])) {
+if(isset($_POST['submit'])) {
 	
 	include("connectdb.php");
 
@@ -9,7 +9,7 @@ if(isset($_POST[submit])) {
 		'$_POST[college]',$_POST[rollno],'$_POST[email]',$_POST[contact],'$_POST[facebookid]','$_POST[address]','$_POST[password]')";
 	$query2="INSERT INTO answer (rollno) values('$_POST[rollno]')";
 	//echo $query;
-	if($_POST[password]==$_POST[reenterpassword]){
+	if($_POST['password']==$_POST['reenterpassword']){
 	     $res=mysqli_query($con,$query);
        //echo "error is".mysqli_error($con);
        if (mysqli_errno($con) == 1062) {

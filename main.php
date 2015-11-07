@@ -86,7 +86,7 @@ if (!$con)
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li class="active"><a href="#">Questions <span class="sr-only">(current)</span></a></li>
-              <li><a href="#">Ranklist</a></li>
+              <li><a href="ranklist.php">Ranklist</a></li>
               <li><a href="logout.php">Log Out</a></li>
             </ul>
           </div><!--/.nav-collapse -->
