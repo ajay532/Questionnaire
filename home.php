@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="image/photo.jpg">
 
-    <title>Questionnair</title>
+    <title>Questionnaire</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -58,9 +58,59 @@
         </div><!--/.container-fluid -->
       </nav>
 	  
-		<div class="jumbotron">
-		<h1 align="center">Welcome to Questionnair</h1><br>
-		<h1 align="center"><a href="main.php?data=1" class="btn btn-lg btn-primary" >Start Test</a></h1>
+		<div style="background: #10bbf1" class="jumbotron">
+			<font color="white"><h1 align="center">Welcome to Questionnaire</h1><br>
+			<h1 align="center"><a href="main.php?data=1" class="btn btn-lg btn-primary" >Start Test</a></h1>
+			
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			
+				<h3><ul class="nav navbar-nav navbar-right">
+						<li><a class="page-scroll" href="#info"><font color="black">Info &nbsp;</font></a></li>
+						<li><a class="page-scroll" href="#rules"><font color="black">Rules &nbsp;</font></a></li>
+						<li><a class="page-scroll" href="#scoring"><font color="black">Scoring </font></a></li>
+					</ul>
+				</h3>	
+			</div>
+			
+			</font>
+		
+		</div> <!-- jumbotron-->
+		<section id="info">
+		<div style="background: #10f1f1" class="jumbotron">
+			<h1 align="center"> Info <h1>
+		<p>
+		Questionnaire is a CMS(content management system) where we can organize online tests.<br\>
+		
+		</p>
 		</div>
+		</section>
+		<section id="rules">
+		<div style="background: #10f1aa" class="jumbotron">
+			<h1 align="center"> Rules <h1>
+		<p><h4>
+		<ul type="disk">
+			<li>Please refrain from discussing strategy during the contest.</li><br>
+			<li>You can participate only once in test.</li><br>
+			<li>Test contains 30 questions.</li><br>
+			<li>You will have 60 minutes to complete your test.</li><br>
+			<li>Questionnaire admins decision will be final.</li>
+		</ul>
+		</h4>
+		</p>
+		</div>
+		</section>
+		<section id="scoring">
+		<div style="background: #f1a1a1" class="jumbotron">
+			<h1 align="center"> Scoring <h1>
+			<p><h4>
+			<ul type="disk">
+				<li>Eery questions contains equal points.</li><br>
+				<li>No penality for wrong answers.</li><br>
+				<li>Questionnaire admins decision will be final.</li>
+			</ul>
+			</h4></p>
+		</div>
+		</section>
+	</div><!--  container -->	
 </body>
 </html>
