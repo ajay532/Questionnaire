@@ -8,6 +8,7 @@ if(isset($_POST['submit'])) {
 	$query="INSERT INTO registration values('$_POST[name]','$_POST[branch]',$_POST[year],'$_POST[university]',
 		'$_POST[college]',$_POST[rollno],'$_POST[email]',$_POST[contact],'$_POST[facebookid]','$_POST[address]','$_POST[password]')";
 	$query2="INSERT INTO answer (rollno) values('$_POST[rollno]')";
+	$query3="INSERT INTO ranklist (rollno) values('$_POST[rollno]')";
 	//echo $query;
 	if($_POST['password']==$_POST['reenterpassword']){
 	     $res=mysqli_query($con,$query);
@@ -18,6 +19,7 @@ if(isset($_POST['submit'])) {
       if(!mysqli_errno($con))
 	  {
 		$res2=mysqli_query($con,$query2);
+		$res3=mysqli_query($con,$query3);
         header("location: index.php?status=1");
 	  }
         else if( mysqli_errno($con) != 1062)

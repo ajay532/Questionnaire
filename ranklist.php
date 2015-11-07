@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="image/photo.jpg">
 
-    <title>Questionnaire</title>
+    <title>Questionnair</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -41,17 +42,17 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home.php">Questionnaire</a>
+            <a class="navbar-brand" href="#">Questionnaire</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="home.php">Home <span class="glyphicon glyphicon-home"></span></a></li>
+              <li><a href="#">Home <span class="glyphicon glyphicon-home"></span></a></li>
               <li ><a href="#">About <span class="glyphicon glyphicon-user"></span></a></li>
               <li><a href="#">Contact <span class="glyphicon glyphicon-earphone"></span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="main.php?data=1">Questions <span class="glyphicon glyphicon-dashboard"></span><span class="sr-only">(current)</span></a></li>
-              <li class="active"><a href="ranklist.php">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
+              <li class="active"><a href="ranklist.php?id=1">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
               <li><a href="logout.php">Log Out <span class="glyphicon glyphicon-off"></span></a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -61,18 +62,20 @@
       
       <nav>
 	  
-		<div style="background: #f1f1f1" class="jumbotron" >
+		<div class="jumbotron">
 		<h1 align="center">Ranklist</h1>
-			<form class="navbar-form navbar-right" role="search" method="post">
+		<!--
+			<form class="navbar-form navbar-right" action="" role="search" method="post">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search by name">
+                    <input type="text" class="form-control" name="search_name" placeholder="Search by name">
                     <span class="input-group-btn">
-                        <button type="submit" class="btn btn-default">
+                        <input type="submit" name="submit" value="submit" class="btn btn-default">
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </button>
                     </span>
                 </div>
             </form>
+			-->
 		<table class="table" border="1px">
 			<thead>
 				<tr>
@@ -87,113 +90,63 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="warning">
-					<td>1</td>
-					<td>1223234</td>
-					<td>shubham singh</td>
-					<td>IERT</td>
-					<td>CSE</td>
-					<td>30</td>
-					<td>0</td>
-					<td>30</td>		
+			<?php
+			$con = mysql_connect('localhost','root','') or die("Unable to connect to MySQL");
+			$a=mysql_select_db('questionnaire', $con) or die("Unable to select the database");
+			include "calculation.php";
+			$a=($_GET['id']-1)*10;
+			$b=$_GET['id']*10;
+			$que=mysql_query("SELECT * FROM ranklist WHERE id>=$a AND id<=$b ORDER BY rank ");
+			while($que2=mysql_fetch_array($que))
+			{
+				$que3=mysql_query("SELECT * FROM registration WHERE rollno=$que2[rollno]");
+			    $que4=mysql_fetch_array($que3);
+				echo "
+				<tr class=\"warning\">
+					<td>$que2[rank]</td>
+					<td>$que2[rollno]</td>
+					<td>$que4[name]</td>
+					<td>$que4[college]</td>
+					<td>$que4[branch]</td>
+					<td>$que2[correct]</td>
+					<td>$que2[wrong]</td>
+					<td>$que2[correct]</td>		 
 				</tr>
-				<tr class="status">
-					<td>1</td>
-					<td>1223234</td>
-					<td>shubham singh</td>
-					<td>IERT</td>
-					<td>CSE</td>
-					<td>30</td>
-					<td>0</td>
-					<td>30</td>		        </tr>
-				<tr class="warning">
-					<td>1</td>
-					<td>1223234</td>
-					<td>shubham singh</td>
-					<td>IERT</td>
-					<td>CSE</td>
-					<td>30</td>
-					<td>0</td>
-					<td>30</td>		
-				</tr>
-				<tr class="status">
-					<td>1</td>
-					<td>1223234</td>
-					<td>shubham singh</td>
-					<td>IERT</td>
-					<td>CSE</td>
-					<td>30</td>
-					<td>0</td>
-					<td>30</td>		
-				</tr>
-					
-				<tr class="warning">
-					<td>1</td>
-					<td>1223234</td>
-					<td>shubham singh</td>
-					<td>IERT</td>
-					<td>CSE</td>
-					<td>30</td>
-					<td>0</td>
-					<td>30</td>		
-				</tr>
-				<tr class="status">
-					<td>1</td>
-					<td>1223234</td>
-					<td>shubham singh</td>
-					<td>IERT</td>
-					<td>CSE</td>
-					<td>30</td>
-					<td>0</td>
-					<td>30</td>		        </tr>
-				<tr class="warning">
-					<td>1</td>
-					<td>1223234</td>
-					<td>shubham singh</td>
-					<td>IERT</td>
-					<td>CSE</td>
-					<td>30</td>
-					<td>0</td>
-					<td>30</td>		
-				</tr>
-				<tr class="status">
-					<td>1</td>
-					<td>1223234</td>
-					<td>shubham singh</td>
-					<td>IERT</td>
-					<td>CSE</td>
-					<td>30</td>
-					<td>0</td>
-					<td>30</td>		
-				</tr>
-								
+				";
+			}
+				?>
+						
 			</tbody>
 		</table>
 		<nav>
         <ul class="pager">
-          
-         
-		<div id="navbar" class="navbar-collapse collapse">
-           <div class="col-md-4">
-			<li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
+        
+        <?php
+		$idc=$_GET['id'];
+		$idp=$_GET['id']-1;
+		$idn=$_GET['id']+1;
+		echo "
+		<div id=\"navbar\" class=\"navbar-collapse collapse\">
+           <div class=\"col-md-4\">
+		   <li class=\"previous\"><a href=\"ranklist.php?id=$idp\"><span aria-hidden=\"true\">&larr;</span> Previous</a></li>
 			</div>
-			<div class="col-md-4">
-			<ul class="nav navbar-nav">
-              <li><a href="#"><<</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-			  <li><a href="#">6</a></li>
-              <li><a href="#">>></a></li>
+			<div class=\"col-md-4\">
+			<ul class=\"nav navbar-nav\">
+              <li><a href=\"ranklist.php?id=1\"><<</a></li>
+              <li><a href=\"ranklist.php?id=2\">2</a></li>
+              <li><a href=\"ranklist.php?id=3\">3</a></li>
+              <li><a href=\"ranklist.php?id=4\">4</a></li>
+			  <li><a href=\"ranklist.php?id=5\">5</a></li>
+              <li><a href=\"ranklist.php?id=6\">>></a></li>
 
             </ul>
 		</div>
-		<div class="col-md-4">
-         <li class="next"><a href="#">Next <span aria-hidden="true">&rarr;</span></a></li> 
+		<div class=\"col-md-4\">
+         <li class=\"next\"><a href=\"ranklist.php?id=$idn\">Next <span aria-hidden=\"true\">&rarr;</span></a></li> 
 		 </div>
 		</div>
-		  
+		";
+		  ?>
         </ul>
       </nav>
 		

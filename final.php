@@ -57,7 +57,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               
-              <li><a href="ranklist.php">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
+              <li><a href="ranklist.php?id=1">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
               <li><a href="logout.php">Log Out <span class="glyphicon glyphicon-off"></span></a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -111,7 +111,7 @@
 				</tbody>
 			</table>
 			<br><label>Click here to see </label>
-			<a href="ranklist.php">Ranklist</a><br><br>
+			<a href="ranklist.php?id=1">Ranklist</a><br><br>
 		</div>
 		<div class="col-lg-4"></div>
 	</form>
