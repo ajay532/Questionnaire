@@ -59,7 +59,8 @@
       </nav>
 	  
 		<div class="jumbotron">
-		
+		<h1 align="center">Welcome to Questionnair</h1><br>
+		<h1 align="center"><a href="main.php?data=1" class="btn btn-lg btn-primary" >Start Test</a></h1>
 		</div>
 </body>
 </html>
