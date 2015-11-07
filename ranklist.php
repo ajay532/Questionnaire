@@ -87,7 +87,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr bgcolor="yellow">
+				<tr class="warning">
 					<td>1</td>
 					<td>1223234</td>
 					<td>shubham singh</td>
@@ -97,7 +97,7 @@
 					<td>0</td>
 					<td>30</td>		
 				</tr>
-				<tr bgcolor="#c9d6d1">
+				<tr class="status">
 					<td>1</td>
 					<td>1223234</td>
 					<td>shubham singh</td>
@@ -106,7 +106,7 @@
 					<td>30</td>
 					<td>0</td>
 					<td>30</td>		        </tr>
-				<tr bgcolor="#b46632">
+				<tr class="warning">
 					<td>1</td>
 					<td>1223234</td>
 					<td>shubham singh</td>
@@ -116,7 +116,7 @@
 					<td>0</td>
 					<td>30</td>		
 				</tr>
-				<tr bgcolor="#ffffff">
+				<tr class="status">
 					<td>1</td>
 					<td>1223234</td>
 					<td>shubham singh</td>
@@ -126,17 +126,8 @@
 					<td>0</td>
 					<td>30</td>		
 				</tr>
-				<tr bgcolor="#ffffff">
-					<td >1</td>
-					<td>1223234</td>
-					<td>shubham singh</td>
-					<td>IERT</td>
-					<td>CSE</td>
-					<td>30</td>
-					<td>0</td>
-					<td>30</td>		
-				</tr>
-				<tr bgcolor="#ffffff">
+					
+				<tr class="warning">
 					<td>1</td>
 					<td>1223234</td>
 					<td>shubham singh</td>
@@ -146,7 +137,7 @@
 					<td>0</td>
 					<td>30</td>		
 				</tr>
-				<tr bgcolor="#ffffff">
+				<tr class="status">
 					<td>1</td>
 					<td>1223234</td>
 					<td>shubham singh</td>
@@ -155,7 +146,7 @@
 					<td>30</td>
 					<td>0</td>
 					<td>30</td>		        </tr>
-				<tr bgcolor="#ffffff">
+				<tr class="warning">
 					<td>1</td>
 					<td>1223234</td>
 					<td>shubham singh</td>
@@ -165,7 +156,7 @@
 					<td>0</td>
 					<td>30</td>		
 				</tr>
-				<tr bgcolor="#ffffff">
+				<tr class="status">
 					<td>1</td>
 					<td>1223234</td>
 					<td>shubham singh</td>
@@ -175,17 +166,7 @@
 					<td>0</td>
 					<td>30</td>		
 				</tr>
-				<tr bgcolor="#ffffff">
-					<td>1</td>
-					<td>1223234</td>
-					<td>shubham singh</td>
-					<td>IERT</td>
-					<td>CSE</td>
-					<td>30</td>
-					<td>0</td>
-					<td>30</td>		
-				</tr>
-				
+								
 			</tbody>
 		</table>
 		<nav>
