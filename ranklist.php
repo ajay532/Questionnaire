@@ -50,7 +50,7 @@
               <li><a href="#">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">Questions <span class="sr-only">(current)</span></a></li>
+              <li><a href="main.php?data=1">Questions <span class="sr-only">(current)</span></a></li>
               <li class="active"><a href="ranklist.php">Ranklist</a></li>
               <li><a href="logout.php">Log Out</a></li>
             </ul>
