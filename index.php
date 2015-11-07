@@ -4,8 +4,7 @@
 	if(isset($_SESSION['user'])){		//if user has loged in		
 		header("location: main.php?data=1");
 	}
-	if(isset($_POST['signup']))
-		header("location: registration.php");	
+	
 	
 ?>
 <!DOCTYPE html>
@@ -72,7 +71,7 @@
 
   						</div>
   						<div class="col-lg-6">
-  						<button class="btn btn-lg btn-primary btn-block" name="signup" >Sign up</button>
+  						<a href="registration.php" class="btn btn-lg btn-primary btn-block" name="signup" >Sign up</a>
   						</div>
   			
   					
