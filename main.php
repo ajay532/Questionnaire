@@ -132,7 +132,7 @@ if (!$con)
         <ul class=\"pager\">
 
           <li class=\"previous\"><a href=\"$queryp\"><span aria-hidden=\"true\">&larr;</span> Previous</a></li>
-          <li class=\"next\"><a href=\"$queryp\">Next <span aria-hidden=\"true\">&rarr;</span></a></li>
+          <li class=\"next\"><a href=\"$queryn\">Next <span aria-hidden=\"true\">&rarr;</span></a></li>
         </ul>
       </nav>
       <div class=\"jumbotron\">
