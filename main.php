@@ -140,7 +140,7 @@ if (!$con)
 		
         <h2>Question No.".$row['id']."</h2>
         <p>".$row['question']."</p>
-		<form name=\"form1\" method=\"post\" action=\"#\">
+		<form name=\"form1\" method=\"post\" action=\"$queryn\">
         <div class=\"radio\">
           <label>
             <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios2\" value=\"opt1\">
