@@ -183,29 +183,29 @@ if (!$con)
           <textarea class="textarea form-control input-lg" placeholder="enter your question here" rows="5" name="que"><?php if(isset($option1)) echo "$question1";?></textarea><br/><br/>
           <div class="rows">
             <div class="col-lg-6">
-              <label>option 1</label> <input type="text" class="form-control" name="opt1" value=<?php if(isset($option1)) echo "\"$option1\""; else echo "\"\"" ?> >
+              <label>option 1</label> <input type="text" class="form-control" name="opt1" value=<?php if(isset($option1)) echo "\"$option1\""; else echo "\"\""; ?>  >
             </div>
             <div class="col-lg-6">
-              <label>option 2</label> <input type="text" class="form-control" name="opt2" value=<?php if(isset($option1)) echo "\"$option2\""; else echo "\"\"" ?> > </label>
+              <label>option 2</label> <input type="text" class="form-control" name="opt2" value=<?php if(isset($option1)) echo "\"$option2\""; else echo "\"\""; ?> > </label>
             </div>
           </div>
 		  <br/><br/>
         <div class="rows">
             <div class="col-lg-6">
-              <label>option 3</label> <input type="text" class="form-control" name="opt3" value=<?php if(isset($option1)) echo "\"$option3\""; else echo "\"\"" ?> >
+              <label>option 3</label> <input type="text" class="form-control" name="opt3" value=<?php if(isset($option1)) echo "\"$option3\""; else echo "\"\""; ?> >
             </div>
             <div class="col-lg-6">
-              <label >option 4 </label><input type="text" class="form-control" name="opt4" value=<?php if(isset($option1)) echo "\"$option4\""; else echo "\"\"" ?> >
+              <label >option 4 </label><input type="text" class="form-control" name="opt4" value=<?php if(isset($option1)) echo "\"$option4\""; else echo "\"\""; ?> >
             </div>
         </div>
         <br/>
 		<div class="col-md-6">
 			<label>Correct</label>
 			<select class="select form-control" data-width="100%" name="optcr" value=<?php if(isset($option1)) echo "\"$optioncr\""; else echo "\"\"" ?> >
-			<option value="opt1">option1</option>
-			<option value="opt2">option2</option>
-			<option value="opt3">option3</option>
-			<option value="opt4">option4</option>
+			<option value="opt1" <?php if($optioncr=="opt1") echo " selected";?> >option1</option>
+			<option value="opt2" <?php if($optioncr=="opt2") echo " selected";?>  >option2</option>
+			<option value="opt3" <?php if($optioncr=="opt3") echo " selected";?> >option3</option>
+			<option value="opt4" <?php if($optioncr=="opt1") echo " selected";?> >option4</option>
 			</select>
 		</div>
         <div class="col-md-6"></div>
