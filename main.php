@@ -1,13 +1,10 @@
 <?php
-
 session_start();
   if(!isset($_SESSION['user']))
     header("location: index.php?status=2");
-
 $con = mysql_connect('localhost','root','') or die("Unable to connect to MySQL");
 $a=mysql_select_db('questionnaire', $con) or die("Unable to select the database");
 $result1=mysql_query("select * from question");
-
 ?>
 
 <?php
@@ -19,7 +16,6 @@ if (!$con)
   {
     die('Could not connect: ' . mysql_error());
   }
-
   $option=$_POST['optionsRadios'];
   $ques="q"."$_GET[data]";
   
@@ -94,14 +90,17 @@ if (!$con)
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+
               <li><a href="#">Home <span class="glyphicon glyphicon-home"></a></li>
               <li ><a href="#">About <span class="glyphicon glyphicon-user"></span></a></li>
+
               <li><a href="#">Contact <span class="glyphicon glyphicon-earphone"></span></a></li>
             </ul>
            
             <ul class="nav navbar-nav navbar-right">
               <li class="active"><a href="#">Questions <span class="glyphicon glyphicon-dashboard"><span class="sr-only">(current)</span></a></li>
               <li><a href="ranklist.php?id=1">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
+
               <?php 
                 if(isset($_SESSION['user'])){
               ?>
@@ -115,6 +114,9 @@ if (!$con)
               <?php
                 }
               ?>
+
+              
+
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -161,7 +163,6 @@ if (!$con)
       <!-- Main component for a primary marketing message or call to action -->
       <nav>
         <ul class=\"pager\">
-
           <li class=\"previous\"><a href=\"$queryp\"><span aria-hidden=\"true\">&larr;</span> Previous</a></li>
           <li class=\"next\"><a href=\"$queryn\">Next <span aria-hidden=\"true\">&rarr;</span></a></li>
         </ul>
@@ -197,7 +198,6 @@ if (!$con)
           </label>
         </div>
         
-
       </div>
       <p>
           <input type=\"submit\" class=\"submit btn btn-primary\"  name=\"submit\" value=\"submit\"></input><br/>  
