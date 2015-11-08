@@ -69,59 +69,70 @@
 	<div class="col-md-2"></div>
 	
 	<div id="profile" class="col-md-6">
+		<?php
+		session_start();
+		if(!isset($_SESSION['user']))
+		header("location: index.php?status=2");
+		$con = mysql_connect('localhost','root','') or die("Unable to connect to MySQL");
+		$a=mysql_select_db('questionnaire', $con) or die("Unable to select the database");
+		$result=mysql_query("select * from registration where rollno=$_SESSION[user]");
+		$row=mysql_fetch_array($result);
+		echo "
+		<img src=\"image/user.png\" height=\"100px\" width=\"100px\" align=\"left\"></img>
 		
-		<img src="image/user.png" height="100px" width="100px" align="left"></img>
-		<br><br><h3>User Name</h3>
+		<br><br><h3>$row[name]</h3>
 		<br><br>
-		<table style="color: #fffff; font-family:sans-serif; font-size:18px;" class="table" >
+		<table style=\"color: #fffff; font-family:sans-serif; font-size:18px;\" class=\"table\" >
 		<tbody >
 		  <tr>
 			<td>Name</td>
-			<td>user</td>
+			<td>$row[name]</td>
 		  </tr>
 		  <tr>
 			<td>Roll-No</td>
-			<td>12345</td>
+			<td>$row[rollno]</td>
 		  </tr>
 		  <tr>
 			<td>University Name</td>
-			<td>UPTU</td>
+			<td>$row[university]</td>
 		
 		  </tr>
 		  <tr>
 			<td>College Name</td>
-			<td>IERT alld</td>
+			<td>$row[college]</td>
 		
 		  </tr>
 		  <tr>
 			<td>Branch</td>
-			<td>CSE</td>
+			<td>$row[branch]</td>
 		
 		  </tr>
 		  <tr>
 			<td>Year</td>
-			<td>3</td>
+			<td>$row[year]</td>
 		
 		  </tr>
 		  <tr>
 			<td>Email-id</td>
-			<td>abc@gmail.com</td>	
+			<td>$row[email]</td>	
 		  </tr>
 		  <tr>
 			<td>Facebook-id</td>
-			<td>facebook.com/abc</td>
+			<td>$row[facebookid]</td>
 		  </tr>
 		  <tr>
 			<td>address</td>
-			<td>Naini, allahabd</td>
+			<td>$row[address]</td>
 		  </tr>
 		</tbody>
 	  </table>
-	  <a class="btn btn-default" href="registration.php">Update Profile</a><br><br>
+	  
+	  <a class=\"btn btn-default\" href=\"registration.php\">Update Profile</a><br><br>
 	</div>
 	
-	<div class="col-md-4"></div>
-  
+	<div class=\"col-md-4\"></div>
+	";
+  ?>
   </div>	 
 
 </body>

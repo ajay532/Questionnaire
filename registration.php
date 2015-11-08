@@ -1,14 +1,28 @@
 <?php
-
+session_start();
 $error='';
 if(isset($_POST['submit'])) {
 	
 	include("connectdb.php");
 
-	$query="INSERT INTO registration values('$_POST[name]','$_POST[branch]',$_POST[year],'$_POST[university]',
-		'$_POST[college]',$_POST[rollno],'$_POST[email]',$_POST[contact],'$_POST[facebookid]','$_POST[address]','$_POST[password]')";
-	$query2="INSERT INTO answer (rollno) values('$_POST[rollno]')";
-	$query3="INSERT INTO ranklist (rollno) values('$_POST[rollno]')";
+	
+				
+				if(isset($_SESSION['user']))
+				{
+					$query="INSERT INTO registration values (name,branch,year,university,college,email,contact,facebookid,address,password) ('$_POST[name]','$_POST[branch]',$_POST[year],'$_POST[university]',
+					'$_POST[college]','$_POST[email]',$_POST[contact],'$_POST[facebookid]','$_POST[address]','$_POST[password]')";
+				}
+				else
+				{
+					$query="INSERT INTO registration values('$_POST[name]','$_POST[branch]',$_POST[year],'$_POST[university]',
+					'$_POST[college]',$_POST[rollno],'$_POST[email]',$_POST[contact],'$_POST[facebookid]','$_POST[address]','$_POST[password]')";
+					$query2="INSERT INTO answer (rollno) values('$_POST[rollno]')";
+					$query3="INSERT INTO ranklist (rollno) values('$_POST[rollno]')";
+				}
+								
+	
+	
+	
 	//echo $query;
 	if($_POST['password']==$_POST['reenterpassword']){
 	     $res=mysqli_query($con,$query);
@@ -18,8 +32,12 @@ if(isset($_POST['submit'])) {
             }
       if(!mysqli_errno($con))
 	  {
-		$res2=mysqli_query($con,$query2);
-		$res3=mysqli_query($con,$query3);
+		  if(!isset($_SESSION['user']))
+				{
+					$res2=mysqli_query($con,$query2);
+					$res3=mysqli_query($con,$query3);
+				}
+		
         header("location: index.php?status=1");
 	  }
         else if( mysqli_errno($con) != 1062)
@@ -109,9 +127,26 @@ if(isset($_POST['submit'])) {
   							<label for="InputName">College</label> <input type="text" class="form-control" name="college" placeholder="allahabad dergree college" required><br/>
 
   							<div class="form-group">
-  								<div class="col-xs-4">
-  									<label for="InputRollNo">University Roll-No.</label> <input type="text" name="rollno" class="form-control" placeholder="1234567890" required>  
-  								</div>	
+  								
+								<?php
+								
+								if(isset($_SESSION['user']))
+								{
+									echo"
+									<div class=\"col-xs-4\">
+  									<label for=\"InputRollNo\">University Roll-No.</label> <input class=\"form-control\" id=\"disabledInput\" type=\"text\" name=\"rollno\" class=\"form-control\" placeholder=\"$_SESSION[user]\" disabled>  
+									</div>
+										";
+								}
+								else
+								{
+									echo"
+									<div class=\"col-xs-4\">
+  									<label for=\"InputRollNo\">University Roll-No.</label> <input type=\"text\" name=\"rollno\" class=\"form-control\" placeholder=\"1234567890\" required>  
+									</div>
+										";	
+								}
+								?>
   								<div class="col-xs-8">
   									<label for="InputName">Email</label> <input type="text" class="form-control" name="email" placeholder="abc@gmail.com" required><br/>
   								</div>
