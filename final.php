@@ -152,6 +152,7 @@
 					echo "<div class='alert alert-danger'>$error</div>";
 				}
 			?>
+			<!--
 			<h2 align="center"><label>Your result</h3></label><br>
 			<table class="table" border="1px">
 			<?php
@@ -180,6 +181,7 @@
 			<?php
 				if(!$con)
 					include "connectdb.php";
+					
 
 				$rollno =$_SESSION['user'];
 				$que=mysqli_query($con,"SELECT * FROM ranklist WHERE rollno=$rollno ");
@@ -200,15 +202,18 @@
 					<tr>
 					";
 				}
+				
 			?>
 			
 				</tbody>
 			</table>
+			-->
 			<br><label>Click here to see </label>
 			<a href="ranklist.php?id=1">Ranklist</a><br><br>
 		</div>
 		<div class="col-lg-4"></div>
 	</form>
+	
 
 <div id="about" class="modal fade">
         <div class="modal-dialog">
