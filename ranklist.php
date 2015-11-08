@@ -47,7 +47,7 @@
             <a class="navbar-brand" href="home.php">Questionnaire</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
-<<<<<<< HEAD
+
             
               
               <?php
