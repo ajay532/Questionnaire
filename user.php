@@ -28,10 +28,11 @@
     <![endif]-->
 				
 	<style type="text/css">
-		#form{
-			background-color:#adf296;
+		#profile{
+			background-color:#f2f1fa;
 			margin-bottom:20px;
 		}
+		
 	</style>
   </head>
 
@@ -53,69 +54,75 @@
             <ul class="nav navbar-nav">
               <li><a href="home.php">Home <span class="glyphicon glyphicon-home"></span></a></li>
               <li ><a href="#">About <span class="glyphicon glyphicon-info-sign"></span></a></li>
-			  <li><a href="#">Contact <span class="glyphicon glyphicon-earphone"></span></a></li>
+              <li><a href="#">Contact <span class="glyphicon glyphicon-earphone"></span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              
+              <li><a href="main.php?data=1">Questions <span class="glyphicon glyphicon-dashboard"><span class="sr-only">(current)</span></a></li>
               <li><a href="ranklist.php?id=1">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
-              <li><a href="user.php">User<span class="glyphicon glyphicon-user"></span></a></li>
+              <li class="active"><a href="user.php">User<span class="glyphicon glyphicon-user"></span></a></li>
 			  <li><a href="logout.php">Log Out <span class="glyphicon glyphicon-off"></span></a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
-      </nav>
-	  
-				
-	<form class="form-signin">
-		
-		<div id="form" class="col-lg-8">
-			<h1 align="center">Feedback</h1>
-			<label>What you like on this test. </label><br>
-			<input type="text" class="form-control" name="like-part" /><br>
-			<label>Do you face any problem during test. </label>
-			<input type="radio"  name="prob" value="yes"> &nbsp;Yes&nbsp;
-			<input type="radio"  name="prob" value="no"> &nbsp;No
-			<br><br><label>If yes then mention here which type of problem you face. </label>
-			<input type="text" class="form-control" name="que" /><br>
-			<br><label>how was questions. </label><br>
-			<input type="text" class="form-control" name="que" /><br>
-			<br><label>how was your experience in Questionnaire. </label><br>
-			<input type="text" class="form-control" name="exp" /><br>
-			<br><label>How we can improve this test(if you have any suggestion). </label><br>
-			<textarea class="textarea form-control input-lg" rows="5" name="sug"></textarea><br>
-			<input type="submit" class="btn btn-default" value="Submit"/><br>
-			<h2 align="center"><label>Your result</h3></label><br>
-			<table class="table" border="1px">
-				<thead>
-				<tr class="danger">
-					<th>#</th>
-					<th>Roll No.</th>
-					<th>Name</th>
-					<th>College Name</th>
-					<th>Branch</th>
-					<th>Correct Answers</th>
-					<th>Wrong Answers</th>
-					<th>Total Points</th>		
-				</tr>
-				</thead>
-				<tbody>
-				<tr class="warning">
-					<td>1</td>
-					<td>1223234</td>
-					<td>shubham singh</td>
-					<td>IERT</td>
-					<td>CSE</td>
-					<td>30</td>
-					<td>0</td>
-					<td>30</td>		
-				</tr>
-				</tbody>
-			</table>
-			<br><label>Click here to see </label>
-			<a href="ranklist.php?id=1">Ranklist</a><br><br>
-		</div>
-		<div class="col-lg-4"></div>
-	</form>
+    </nav>
 	
+	<div class="col-md-2"></div>
+	
+	<div id="profile" class="col-md-6">
+		
+		<img src="image/user.png" height="100px" width="100px" align="left"></img>
+		<br><br><h3>User Name</h3>
+		<br><br>
+		<table style="color: #fffff; font-family:sans-serif; font-size:18px;" class="table" >
+		<tbody >
+		  <tr>
+			<td>Name</td>
+			<td>user</td>
+		  </tr>
+		  <tr>
+			<td>Roll-No</td>
+			<td>12345</td>
+		  </tr>
+		  <tr>
+			<td>University Name</td>
+			<td>UPTU</td>
+		
+		  </tr>
+		  <tr>
+			<td>College Name</td>
+			<td>IERT alld</td>
+		
+		  </tr>
+		  <tr>
+			<td>Branch</td>
+			<td>CSE</td>
+		
+		  </tr>
+		  <tr>
+			<td>Year</td>
+			<td>3</td>
+		
+		  </tr>
+		  <tr>
+			<td>Email-id</td>
+			<td>abc@gmail.com</td>	
+		  </tr>
+		  <tr>
+			<td>Facebook-id</td>
+			<td>facebook.com/abc</td>
+		  </tr>
+		  <tr>
+			<td>address</td>
+			<td>Naini, allahabd</td>
+		  </tr>
+		</tbody>
+	  </table>
+	  <a class="btn btn-default" href="registration.php">Update Profile</a><br><br>
+	</div>
+	
+	<div class="col-md-4"></div>
+  
+  </div>	 
+
 </body>
-</html>	  
+</html>

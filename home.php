@@ -45,14 +45,15 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home <span class="glyphicon glyphicon-home"></span></a></li>
-              <li ><a href="#">About <span class="glyphicon glyphicon-user"></span></a></li>
+              <li class="active"><a href="home.php">Home <span class="glyphicon glyphicon-home"></span></a></li>
+              <li ><a href="#">About <span class="glyphicon glyphicon-info-sign"></span></a></li>
               <li><a href="#">Contact <span class="glyphicon glyphicon-earphone"></span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               
               <li><a href="ranklist.php?id=1">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
-              <li><a href="logout.php">Log Out <span class="glyphicon glyphicon-off"></span></a></li>
+              <li><a href="user.php">User<span class="glyphicon glyphicon-user"></span></a></li>
+			  <li><a href="logout.php">Log Out <span class="glyphicon glyphicon-off"></span></a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->

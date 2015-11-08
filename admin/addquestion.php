@@ -77,13 +77,14 @@ if (!$con)
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li><a href="../home.php">Home <span class="glyphicon glyphicon-home"></a></li>
-              <li><a href="#">About <span class="glyphicon glyphicon-user"></span></a></li>
+              <li><a href="#">About <span class="glyphicon glyphicon-info-sign"></span></a></li>
               <li><a href="#">Contact <span class="glyphicon glyphicon-earphone"></span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li class="active"><a href="./index_files/index.html">Questions <span class="glyphicon glyphicon-dashboard"><span class="sr-only">(current)</span></a></li>
               <li><a href="../ranklist.php">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
-              <li><a href="../logout.php">Log Out <span class="glyphicon glyphicon-off"></span></a></li>
+              <li><a href="../user.php">User<span class="glyphicon glyphicon-user"></span></a></li>
+			  <li><a href="../logout.php">Log Out <span class="glyphicon glyphicon-off"></span></a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
