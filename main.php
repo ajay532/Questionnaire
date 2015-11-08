@@ -104,6 +104,7 @@ if (!$con)
               <?php 
                 if(isset($_SESSION['user'])){
               ?>
+              <li><a href="user.php">User<span class="glyphicon glyphicon-user"></span></a></li>
               <li><a href="logout.php">Log Out&nbsp;<b><?php echo "(".$_SESSION['user'].")";?></b> <span class="glyphicon glyphicon-off"></span></a></li>
               <?php 
                 }
