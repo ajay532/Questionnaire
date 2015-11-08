@@ -9,8 +9,7 @@ if(isset($_POST['submit'])) {
 				
 				if(isset($_SESSION['user']))
 				{
-					$query="INSERT INTO registration values (name,branch,year,university,college,email,contact,facebookid,address,password) ('$_POST[name]','$_POST[branch]',$_POST[year],'$_POST[university]',
-					'$_POST[college]','$_POST[email]',$_POST[contact],'$_POST[facebookid]','$_POST[address]','$_POST[password]')";
+					$query="UPDATE registration SET name='$_POST[name]', branch='$_POST[branch]',year=$_POST[year],university='$_POST[university]',college='$_POST[college]',email='$_POST[email]',contact=$_POST[contact],facebookid='$_POST[facebookid]',address='$_POST[address]',password='$_POST[password]' WHERE rollno=$_SESSION[user]";
 				}
 				else
 				{
