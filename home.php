@@ -34,6 +34,24 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#myModal").on('show.bs.modal', function(event){
+				var button = $(event.relatedTarget);  // Button that triggered the modal
+				var titleData = button.data('title'); // Extract value from data-* attributes
+				$(this).find('.modal-title').text(titleData);
+			});
+		});
+	</script>
+	<style type="text/css">
+		.bs-example{
+			margin: 20px;
+		}
+	</style>
 
   </head>
 
@@ -54,8 +72,8 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="home.php">Home <span class="glyphicon glyphicon-home"></span></a></li>
-              <li ><a href="#">About <span class="glyphicon glyphicon-info-sign"></span></a></li>
-              <li><a href="#">Contact <span class="glyphicon glyphicon-earphone"></span></a></li>
+              <li ><a href="#" data-toggle="modal" data-target="#about"  data-title="About">About <span class="glyphicon glyphicon-info-sign"></span></a></li>
+              <li><a href="#" data-toggle="modal" data-target="#myModal"  data-title="Contact Us">Contact <span class="glyphicon glyphicon-earphone"></span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               
@@ -172,5 +190,52 @@
 		</div>
 		</section>
 	</div><!--  container -->	
+	
+	<div id="about" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">About</h4>
+                </div>
+                <div class="modal-body">
+					<p style="color:#dd6f00; font-size:18px">Questionnaire is a CMS(Content Management System) which is developed by Btech(CSE) 3<sup>rd</sup> year students of IERT Allahabad. <br>
+					Questionnaire provides you a platform where you can give or you can organize<br>MCQ based online test.<br>
+					</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+	
+		 <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Contact Us</h4>
+                </div>
+                <div class="modal-body">
+					
+					<p style="color:#dd6f00; font-size:18px">
+						For any kind of information regarding Questionnaire you can contact us at
+						questionnairecms@gmail.com
+						<br><br>
+						<span class="glyphicon glyphicon-earphone"></span> 
+						+917783984676, +919984201321, +917054910780<br><br>
+						<span class="glyphicon glyphicon-map-marker"> 
+						 Institute of Engineering & Rural Technology<br>
+						 &nbsp;&nbsp;26 Chaitham Lines<br>
+						 &nbsp;&nbsp;Near Prayag Railway Station<br>
+						 &nbsp;&nbsp;Allahabad 211002<br>
+						
+					</p>
+				   
+                </div>
+                
+            </div>
+        </div>
+    </div>
+		
 </body>
 </html>

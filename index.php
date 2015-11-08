@@ -18,7 +18,7 @@
 	<meta name="author" content="">
 	<link rel="icon" href="image/photo.jpg">
 
-	<title>Questionnair</title>
+	<title>Questionnaire</title>
 
 	<!-- Bootstrap core CSS -->
 	<link href="css/bootstrap.css" rel="stylesheet">
