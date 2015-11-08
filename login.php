@@ -22,8 +22,8 @@ if (isset($_POST['submit'])) {
 		$result = mysqli_query($con,$query);
 		$rows=mysqli_num_rows($result);
 		if ($rows == 1) {
-		$_SESSION['user']=$username; 
-		header("location: main.php?data=1"); // Redirecting To Other Page
+			$_SESSION['user']=$username; 
+			header("location: home.php"); // Redirecting To Other Page
 		} else {
 			$error = "Username or Password is invalid";
 		}

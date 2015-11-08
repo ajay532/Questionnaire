@@ -1,3 +1,39 @@
+<?php
+	session_start();
+	include "connectdb.php";
+	$rollno =$_SESSION['user'];
+	if(isset($_SESSION['start']))
+		unset($_SESSION['start']);
+	if(isset($_GET['submit-from'])){
+		
+		//echo $_SESSION['user'];
+		
+		$like=$_GET['liketype'];
+		$prob=$_GET['prob'];
+		$problems=$_GET['problems'];
+		$questions=$_GET['questions'];
+		$experience=$_GET['experience'];
+		$improve=$_GET['improve'];
+
+		$query="update feedback set liketype='$like', prob='$prob', problems='$problems',questions='$questions',experience='$experience',improve='$improve'";
+		echo $query;
+		$res=mysqli_query($con,$query);
+		if($res){
+			header("location: home.php");
+		}else{
+			$error=mysqli_error($con);
+		}
+	}
+	$query="select user from feedback where user=$rollno";
+	$result = mysqli_query($con,$query);
+	$rows=mysqli_num_rows($result);
+	echo $rows;
+	if ($rows == 0) {
+			
+			$query="insert into feedback(user,start) values($rollno,'finish')";
+			$result = mysqli_query($con,$query);
+		} 
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -65,26 +101,46 @@
       </nav>
 	  
 				
-	<form class="form-signin">
+	<form class="form-signin" action="#" method="get">
 		
 		<div id="form" class="col-lg-8">
 			<h1 align="center">Feedback</h1>
 			<label>What you like on this test. </label><br>
-			<input type="text" class="form-control" name="like-part" /><br>
+				<input type="text" class="form-control" name="liketype" /><br>
+			
 			<label>Do you face any problem during test. </label>
-			<input type="radio"  name="prob" value="yes"> &nbsp;Yes&nbsp;
-			<input type="radio"  name="prob" value="no"> &nbsp;No
+				<input type="radio"  name="prob" value="yes"> &nbsp;Yes&nbsp;
+				<input type="radio"  name="prob" value="no"> &nbsp;No
+			
 			<br><br><label>If yes then mention here which type of problem you face. </label>
-			<input type="text" class="form-control" name="que" /><br>
+				<input type="text" class="form-control" name="problems" /><br>
+			
 			<br><label>how was questions. </label><br>
-			<input type="text" class="form-control" name="que" /><br>
+				<input type="text" class="form-control" name="questions" /><br>
+			
 			<br><label>how was your experience in Questionnaire. </label><br>
-			<input type="text" class="form-control" name="exp" /><br>
+				<input type="text" class="form-control" name="experience" /><br>
+			
 			<br><label>How we can improve this test(if you have any suggestion). </label><br>
-			<textarea class="textarea form-control input-lg" rows="5" name="sug"></textarea><br>
-			<input type="submit" class="btn btn-default" value="Submit"/><br>
+				<textarea class="textarea form-control input-lg" rows="5" name="improve"></textarea><br>
+				<input type="submit" class="btn btn-default" value="Submit" name="submit-from"/><br>
+			<?php
+				if(isset($error)){
+					echo "<div class='alert alert-danger'>$error</div>";
+				}
+			?>
 			<h2 align="center"><label>Your result</h3></label><br>
 			<table class="table" border="1px">
+			<?php
+			//	$query="SELECT * FROM ranklist where rollno=$rollno";
+			//	$res=mysqli_query($con,$query);
+			//	if(!$res){{
+			//		$error2=mysqli_error($con);
+			//		echp $error2;
+			//	}
+		//}
+
+			?>
 				<thead>
 				<tr class="danger">
 					<th>#</th>
@@ -98,16 +154,31 @@
 				</tr>
 				</thead>
 				<tbody>
-				<tr class="warning">
-					<td>1</td>
-					<td>1223234</td>
-					<td>shubham singh</td>
-					<td>IERT</td>
-					<td>CSE</td>
-					<td>30</td>
-					<td>0</td>
-					<td>30</td>		
-				</tr>
+			<?php
+				if(!$con)
+					include "connectdb.php";
+
+				$rollno =$_SESSION['user'];
+				$que=mysqli_query($con,"SELECT * FROM ranklist WHERE rollno=$rollno ");
+				while($que2=mysqli_fetch_array($que))
+				{
+					$que3=mysqli_query($con,"SELECT * FROM registration WHERE rollno=$rollno");
+				    $que4=mysqli_fetch_array($que3);
+						echo "
+					<tr class=\"warning\">
+						<td>$que2[rank]</td>
+						<td>$que2[rollno]</td>
+						<td>$que4[name]</td>
+						<td>$que4[college]</td>
+						<td>$que4[branch]</td>
+						<td>$que2[correct]</td>
+						<td>$que2[wrong]</td>
+						<td>$que2[correct]</td>		 
+					<tr>
+					";
+				}
+			?>
+			
 				</tbody>
 			</table>
 			<br><label>Click here to see </label>

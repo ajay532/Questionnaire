@@ -1,4 +1,6 @@
-
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,14 +47,47 @@
             <a class="navbar-brand" href="#">Questionnaire</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="#">Home <span class="glyphicon glyphicon-home"></span></a></li>
-              <li ><a href="#">About <span class="glyphicon glyphicon-user"></span></a></li>
-              <li><a href="#">Contact <span class="glyphicon glyphicon-earphone"></span></a></li>
-            </ul>
+            
+              
+              <?php
+              	include "connectdb.php";
+  				$rollno=$_SESSION['user'];
+  				$query="select user from feedback where user=$rollno";
+  				//echo $query;
+  				$result = mysqli_query($con,$query);
+  				$rows=mysqli_num_rows($result);
+  				//echo $rows;
+  				if ($rows == 0) {
+      
+              ?>
+              <ul class="nav navbar-nav">
+              <li><a href="home.php">Home <span class="glyphicon glyphicon-home"></span></a></li>
+              
+              <li ><a href="">About <span class="glyphicon glyphicon-user"></span></a></li>
+              <li><a href="">Contact <span class="glyphicon glyphicon-earphone"></span></a></li>
+            	</ul>
+            	<?php 
+            	}
+            ?>
+            
             <ul class="nav navbar-nav navbar-right">
+            <?php
+              	include "connectdb.php";
+  				$rollno=$_SESSION['user'];
+  				$query="select user from feedback where user=$rollno";
+  				//echo $query;
+  				$result = mysqli_query($con,$query);
+  				$rows=mysqli_num_rows($result);
+  				//echo $rows;
+  				if ($rows != 0) {
+      
+              ?>
               <li><a href="main.php?data=1">Questions <span class="glyphicon glyphicon-dashboard"></span><span class="sr-only">(current)</span></a></li>
+              <?php
+              	}
+              ?>
               <li class="active"><a href="ranklist.php?id=1">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
+              
               <li><a href="logout.php">Log Out <span class="glyphicon glyphicon-off"></span></a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -101,6 +136,8 @@
 			{
 				$que3=mysql_query("SELECT * FROM registration WHERE rollno=$que2[rollno]");
 			    $que4=mysql_fetch_array($que3);
+				//echo $que2['rollno'],$_SESSION['user']."loged in";
+				if($que2['rollno']!=$_SESSION['user'])
 				echo "
 				<tr class=\"warning\">
 					<td>$que2[rank]</td>
@@ -113,6 +150,20 @@
 					<td>$que2[correct]</td>		 
 				</tr>
 				";
+				else
+					echo "
+				<tr class=\"\" style='background:#33CC33' >
+					<td>$que2[rank]</td>
+					<td>$que2[rollno]</td>
+					<td>$que4[name]</td>
+					<td>$que4[college]</td>
+					<td>$que4[branch]</td>
+					<td>$que2[correct]</td>
+					<td>$que2[wrong]</td>
+					<td>$que2[correct]</td>		 
+				</tr>
+				";
+
 			}
 				?>
 						

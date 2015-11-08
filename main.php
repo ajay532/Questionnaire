@@ -35,6 +35,20 @@ if (!$con)
 							  echo mysql_error();
   
 }
+  include "connectdb.php";
+  $rollno=$_SESSION['user'];
+  $query="select user from feedback where user=$rollno";
+  //echo $query;
+  $result = mysqli_query($con,$query);
+  $rows=mysqli_num_rows($result);
+  echo $rows;
+  if ($rows == 0) {
+      
+      $query="insert into feedback(user,start) values($rollno,'finish')";
+      $result = mysqli_query($con,$query);
+    }
+    if(!isset($_SESSION['start']))
+        header("location: start.php"); 
 ?>
 
 
@@ -76,18 +90,31 @@ if (!$con)
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home.php">Questionnaire</a>
+            <a class="navbar-brand" href="#">Questionnaire</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="home.php">Home <span class="glyphicon glyphicon-home"></a></li>
+              <li><a href="#">Home <span class="glyphicon glyphicon-home"></a></li>
               <li ><a href="#">About <span class="glyphicon glyphicon-user"></span></a></li>
               <li><a href="#">Contact <span class="glyphicon glyphicon-earphone"></span></a></li>
             </ul>
+           
             <ul class="nav navbar-nav navbar-right">
               <li class="active"><a href="#">Questions <span class="glyphicon glyphicon-dashboard"><span class="sr-only">(current)</span></a></li>
               <li><a href="ranklist.php?id=1">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
-              <li><a href="logout.php">Log Out <span class="glyphicon glyphicon-off"></span></a></li>
+              <?php 
+                if(isset($_SESSION['user'])){
+              ?>
+              <li><a href="logout.php">Log Out&nbsp;<b><?php echo "(".$_SESSION['user'].")";?></b> <span class="glyphicon glyphicon-off"></span></a></li>
+              <?php 
+                }
+                else{
+              ?>
+                <li><a href="index.php">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
+                <li><a href="registration.php">Sign up <span class="glyphicon glyphicon-user"></span></a></li>
+              <?php
+                }
+              ?>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -105,8 +132,12 @@ if (!$con)
 			while($row=mysql_fetch_array($result1))
 			{
 				$query="main.php?data="."$row[id]";
-				 echo " <li class=\"active\"><a href=\"$query\">".$row['id']."</a></li>
-				";
+				 echo " <li class=\"active\"><a href=\"$query\">";
+         if($_GET['data']==$row['id'])
+            echo "<b>".$row['id']."</b>";
+          else
+            echo $row['id'];
+         echo "</a></li>";
 			}
 			?>
               
@@ -175,6 +206,14 @@ if (!$con)
 			";
 			}
 		?>
+    </span></a></li></ul></span></a></li></ul></div></div></nav>
+    <div class="rows">
+      <div class="col-lg-9"></div>
+      <div class="col-lg-3">
+        <a href="final.php" class="btn btn-success">Finish Test</a>
+      </div>
+    </div>
+    
     </div> <!-- /container -->
 
 

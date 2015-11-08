@@ -2,7 +2,7 @@
 	
   include "login.php";
 	if(isset($_SESSION['user'])){		//if user has loged in		
-		header("location: main.php?data=1");
+		header("location: home.php");
 	}
 	
 	

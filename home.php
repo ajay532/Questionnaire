@@ -1,3 +1,11 @@
+<?php
+	session_start();
+	
+	if(isset($_SESSION['user'])){
+		include "connectdb.php";
+
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -52,7 +60,19 @@
             <ul class="nav navbar-nav navbar-right">
               
               <li><a href="ranklist.php?id=1">Ranklist <span class="glyphicon glyphicon-list-alt"></span></a></li>
-              <li><a href="logout.php">Log Out <span class="glyphicon glyphicon-off"></span></a></li>
+              <?php 
+              	if(isset($_SESSION['user'])){
+              ?>
+              <li><a href="logout.php">Log Out&nbsp;<b><?php echo "(".$_SESSION['user'].")";?></b> <span class="glyphicon glyphicon-off"></span></a></li>
+              <?php 
+              	}
+              	else{
+              ?>
+              	<li><a href="index.php">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
+              	<li><a href="registration.php">Sign up <span class="glyphicon glyphicon-user"></span></a></li>
+              <?php
+              	}
+              ?>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -60,8 +80,45 @@
 	  
 		<div style="background: #10bbf1" class="jumbotron">
 			<font color="white"><h1 align="center">Welcome to Questionnaire</h1><br>
-			<h1 align="center"><a href="main.php?data=1" class="btn btn-lg btn-primary" >Start Test</a></h1>
-			
+			<?php if(isset($_SESSION['user'])){
+					$rollno=$_SESSION['user'];
+					$query="select user from feedback where user=$rollno";
+					$result = mysqli_query($con,$query);
+					$rows=mysqli_num_rows($result);
+					if($rows==0){
+			?>
+			<h1 align="center"><a href="start.php" class="btn btn-lg btn-primary" >Start Test</a></h1>
+			<?php
+					}else{?>
+			<h1 align="center"><a href="ranklist.php?id=1" class="btn btn-lg btn-primary" >See Ranklist</a></h1>
+			<?php
+
+					}
+				}else{
+			?>
+			<div class="rows">
+				<div class="col-lg-12" style="height:100px"></div>
+			</div>
+			<div class="rows">
+						<div class="col-lg-4"> </div>
+  						<div class="col-lg-2">
+  							<a href="index.php" class="submit btn btn-primary btn-lg btn-block" name="submit">Sign In</a>
+
+  						</div>
+  						<div class="col-lg-2">
+  						<a href="registration.php" class="btn btn-lg btn-primary btn-block" name="signup" >Sign up</a>
+  						</div>
+  						<div class="col-lg-4"></div>
+  			
+  					
+  						
+  			</div>
+  			<div class="rows">
+				<div class="col-lg-12" style="height:100px"></div>
+			</div>
+			<?php
+				}
+			?>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			
 				<h3><ul class="nav navbar-nav navbar-right">
