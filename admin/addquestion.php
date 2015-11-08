@@ -159,10 +159,10 @@ if (!$con)
  			<div class="col-lg-4"></div>
  			<div class="col-lg-4">
       	<?php
-      		if($msg!=''){
+      		if(isset($msg) && $msg!=''){
       			echo '<span class="alert alert-success">'.$msg.'</span>';
       		}
-      		if($error!='')
+      		if(isset($error) && $error!='')
       			echo '<span class="alert alert-danger">'.$error.'</span>';
       	?>
       		</div>
