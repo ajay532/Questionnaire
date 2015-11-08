@@ -1,5 +1,10 @@
-<!--#####################################################################################################################################
+<!--#####################################################################################################################################-->
+	
 <?php
+	session_start();
+	if(!(isset($_SESSION['user']) && $_SESSION['user']==1311010000))
+		header("location: ../home.php");
+
 $con = mysql_connect('localhost','root','') or die("Unable to connect to MySQL");
 $a=mysql_select_db('questionnaire', $con) or die("Unable to select the database");
 
@@ -9,7 +14,8 @@ if(isset($_POST['submit']))
 {
 error_reporting(E_ALL ^ E_DEPRECATED);
 //date_default_timezone_set('Asia/Kolkata');
-
+$msg='';
+$error='';
 if (!$con)
   {
     die('Could not connect: ' . mysql_error());
@@ -22,17 +28,49 @@ if (!$con)
   $o4=$_POST['opt4'];
   $oc=$_POST['optcr'];
   
-  
+  							if(!isset($_GET['edit-submit'])){
 							  $sql=mysql_query("INSERT INTO `question` VALUES('','$q','$o1','$o2','$o3','$o4','$oc')");
 							  if($sql)
-							  echo "Question Inserted";
+							  	$msg="Question added successfully";
 							  else
-							  echo mysql_error();
-  
-}
+							  	$error=mysql_error();
+  							}
+							else{
+								$id=$_GET['edit-id'];
+								$query="update question set question='$q',opt1='$o1',opt2='$o2',opt3='$o3',opt4='$o4',optcr='$oc' where id=$id";
+								//echo $query;
+								$sql=mysql_query($query);
+								if($sql)
+							  	$msg="Question Updated successfully";
+							  else
+							  	$error=mysql_error();
+							  unset($_GET['edit-id']);
+							
+							}
+  }
 ?>
+<?php
 
-##########################################################################################################################################-->
+
+	$con1=mysqli_connect("localhost","root","","questionnaire");
+	if(isset($_GET['edit-submit'])){
+		$id=$_GET['edit-id'];
+		$query="select * from question where id=$id";
+		//echo $query;
+		$res=mysqli_query($con1,$query);
+		$row=mysqli_fetch_array($res);
+		$question1=$row['question'];
+		$option1=$row['opt1'];
+		$option2=$row['opt2'];
+		$option3=$row['opt3'];
+		$option4=$row['opt4'];
+		$optioncr=$row['optcr'];
+	
+		
+
+	}
+?>
+<!--##########################################################################################################################################-->
 
 <!DOCTYPE html>
 <!-- saved from url=(0040)http://getbootstrap.com/examples/navbar/ -->
@@ -97,32 +135,53 @@ if (!$con)
       <nav>
        
       </nav>
+      <div class="rows">
+ 			<div class="col-lg-4"></div>
+ 			<div class="col-lg-4">
+      	<?php
+      		if($msg!=''){
+      			echo '<span class="alert alert-success">'.$msg.'</span>';
+      		}
+      		if($error!='')
+      			echo '<span class="alert alert-danger">'.$error.'</span>';
+      	?>
+      		</div>
+      		<div class="col-lg-4"></div>
+      </div>
       <div class="jumbotron">
-     
+ 			<div class="rows">
+ 			<form action="#" method="get"> 
+ 				<div class="col-lg-7"></div>
+ 				<div class="col-lg-3"><input type="text" placeholder="enter ques Id to edit" name="edit-id" value=<?php if(isset($option1)) echo "\"$id\""; else echo "\"\"" ?>></div>
+ 				<div class="col-lg-2"><input type="submit" class="submit btn btn-primary" value="Edit question" name="edit-submit"></div>
+ 			</form>
+ 			</div> 
+ 			
+      
         <h2>Enter the question below</h2>
         <form class="form" action="" method="post">
-          <textarea class="textarea form-control input-lg" rows="5" name="que"></textarea><br/><br/>
+          <textarea class="textarea form-control input-lg" placeholder="enter your question here" rows="5" name="que"><?php if(isset($option1)) echo "$question1";?></textarea><br/><br/>
           <div class="rows">
             <div class="col-lg-6">
-              <label>option 1</label> <input type="text" class="form-control" name="opt1">
+              <label>option 1</label> <input type="text" class="form-control" name="opt1" value=<?php if(isset($option1)) echo "\"$option1\""; else echo "\"\"" ?> >
             </div>
             <div class="col-lg-6">
-              <label>option 2</label> <input type="text" class="form-control" name="opt2"></label>
+              <label>option 2</label> <input type="text" class="form-control" name="opt2" value=<?php if(isset($option1)) echo "\"$option2\""; else echo "\"\"" ?> > </label>
             </div>
           </div>
 		  <br/><br/>
         <div class="rows">
             <div class="col-lg-6">
-              <label>option 3</label> <input type="text" class="form-control" name="opt3">
+              <label>option 3</label> <input type="text" class="form-control" name="opt3" value=<?php if(isset($option1)) echo "\"$option3\""; else echo "\"\"" ?> >
             </div>
             <div class="col-lg-6">
-              <label >option 4 </label><input type="text" class="form-control" name="opt4">
+              <label >option 4 </label><input type="text" class="form-control" name="opt4" value=<?php if(isset($option1)) echo "\"$option4\""; else echo "\"\"" ?> >
             </div>
         </div>
         <br/>
 		<div class="col-md-6">
 			<label>Correct</label>
-			<select class="select form-control" data-width="100%" name="optcr">
+			<select class="select form-control" data-width="100%" name="optcr" value=<?php if(isset($option1)) echo "\"$optioncr\""; else echo "\"\"" ?> >
 			<option value="opt1">option1</option>
 			<option value="opt2">option2</option>
 			<option value="opt3">option3</option>
@@ -134,32 +193,38 @@ if (!$con)
 		<div class="col-md-6"></div>		
 			<h1 align="center"><input type="submit" class="submit btn btn-primary"  name="submit" value="submit" /></h1>
 		</form>
+
+		
       </div>
+      
+
 	  
 	  <div class="row" >
+		<table class="table" border="1"> <caption align="top">Previous Questions</caption>
+		<tr>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Question</th>
+					<th>option1</th>
+					<th>option2</th>
+					<th>option3</th>
+					<th>option4</th>
+					<th>option correct</th>
+				</tr>
+			</thead>
+		</tr>
 		<?php
-		echo "
-		<table class=\"table\" border=\"1\">
-		<caption align=\"top\">Previous Questions</caption>
-		";
+		
 		$result=mysql_query("select * from question");
 		while($row=mysql_fetch_array($result))
 		{
-			echo "
-			<tr>
-			<td>
-			 ".$row['id'].";
-			</td>
-			<td>
-		     ".$row['question'].";
-			</td>
-			</tr>
-			";
+			
+			echo "<tr><td>".$row['id']."</td><td>".$row['question']."</td><td>".$row['opt1']."</td><td>".$row['opt2']."</td><td>".$row['opt3']."</td><td>".$row['opt4']."</td><td>".$row['optcr']."</td></tr>";
 		}
-		echo "
-		</table>
-		";
+
 		?>
+		</table>
 	</div>
 	  
     </div> <!-- /container -->

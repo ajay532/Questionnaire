@@ -15,7 +15,7 @@
 		$experience=$_GET['experience'];
 		$improve=$_GET['improve'];
 
-		$query="update feedback set liketype='$like', prob='$prob', problems='$problems',questions='$questions',experience='$experience',improve='$improve'";
+		$query="update feedback set liketype='$like', prob='$prob', problems='$problems',questions='$questions',experience='$experience',improve='$improve' where user='".$_SESSION['user']."'";
 		echo $query;
 		$res=mysqli_query($con,$query);
 		if($res){
