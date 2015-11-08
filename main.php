@@ -174,6 +174,11 @@ if (!$con)
 	  
 			<?php
 			$data=$_GET['data'];  
+			$data1=$data+1;
+			$result3=mysql_query("select * from answer WHERE rollno=$_SESSION[user]");
+			$row4=mysql_fetch_array($result3);
+			$value=$row4[$data];
+			
 			$result2=mysql_query("select * from question where id='$data'");
 			while($row=mysql_fetch_array($result2))
 			{
@@ -200,31 +205,32 @@ if (!$con)
 		<form name=\"form1\" method=\"post\" action=\"\">
         <div class=\"radio\">
           <label>
-            <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios2\" value=\"opt1\">
+            <input type=\"radio\" name=\"optionsRadios\"  id=\"optionsRadios2\" value=\"opt1\" "; if($value=="opt1")echo " checked"; echo ">
             ".$row['opt1']."
           </label>
         </div>
         <div class=\"radio\">
           <label>
-            <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios2\" value=\"opt2\">
+            <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios2\" value=\"opt2\" "; if($value=="opt2")echo " checked"; echo ">
             ".$row['opt2']."
           </label>
         </div>
         <div class=\"radio\">
           <label>
-            <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios2\" value=\"opt3\">
+            <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios2\" value=\"opt3\" "; if($value=="opt3")echo " checked"; echo ">
             ".$row['opt3']."
           </label>
         </div>
         <div class=\"radio\">
           <label>
-            <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios2\" value=\"opt4\">
+            <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios2\" value=\"opt4\" "; if($value=="opt1")echo " checked"; echo ">
             ".$row['opt4']."
           </label>
         </div>
         
       </div>
       <p>
+	  
           <input type=\"submit\" class=\"submit btn btn-primary\"  name=\"submit\" value=\"submit\"></input><br/>  
         </p>
 		</form>
