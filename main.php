@@ -30,7 +30,7 @@ if (!$con)
 							  else
 							  echo mysql_error();
 						  
-				$rown=$row['id'];
+				$rown=$_GET['data'];
 				$rown2=$rown+1;
 				$queryn="main.php?data="."$rown2";  
 				header("location:$queryn");
