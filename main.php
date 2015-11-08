@@ -29,7 +29,11 @@ if (!$con)
 							  echo "Answere Submited";
 							  else
 							  echo mysql_error();
-  
+						  
+				$rown=$row['id'];
+				$rown2=$rown+1;
+				$queryn="main.php?data="."$rown2";  
+				header("location:$queryn");
 }
   include "connectdb.php";
   $rollno=$_SESSION['user'];
@@ -173,7 +177,7 @@ if (!$con)
 		
         <h2>Question No.".$row['id']."</h2>
         <p>".$row['question']."</p>
-		<form name=\"form1\" method=\"post\" action=\"$queryn\">
+		<form name=\"form1\" method=\"post\" action=\"\">
         <div class=\"radio\">
           <label>
             <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios2\" value=\"opt1\">
