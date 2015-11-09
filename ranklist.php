@@ -117,9 +117,7 @@
       </nav>
 
       
-      <nav>
-	  
-		<div class="jumbotron">
+	 
 		<h1 align="center">Ranklist</h1>
 		<!--
 			<form class="navbar-form navbar-right" action="" role="search" method="post">
@@ -191,7 +189,7 @@
 						
 			</tbody>
 		</table>
-		<nav>
+	
         <ul class="pager">
         
         <?php
@@ -221,11 +219,7 @@
 		";
 		  ?>
         </ul>
-      </nav>
-		
-	  </nav>
-		
-	</div>
+      
 </div>
  <div id="about" class="modal fade">
         <div class="modal-dialog">
