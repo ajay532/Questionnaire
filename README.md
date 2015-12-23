@@ -1,5 +1,5 @@
 # Questionnaire
-Questionnaire is a Content Management System for having online test or on local area network. Along with it, it can be user for surveys.
+Questionnaire is a Quiz Management System for having online test and Surveys.
 
 ##Modules of Questionnaire
 1. "main.php" actully the user see the question and submit answer.
