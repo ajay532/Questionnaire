@@ -1,3 +1,4 @@
+
 <?php
 	session_start();
 	
@@ -46,11 +47,45 @@
 				var titleData = button.data('title'); // Extract value from data-* attributes
 				$(this).find('.modal-title').text(titleData);
 			});
+
+			$('#i').click(function(){
+				$('#info').show();
+				$('#rules').hide();
+				$('#scoring').hide();
+			});
+			$('#r').click(function(){
+				$('#info').hide();
+				$('#rules').show();
+				$('#scoring').hide();
+			});
+			$('#s').click(function(){
+				$('#info').hide();
+				$('#rules').hide();
+				$('#scoring').show();
+			});
 		});
 	</script>
 	<style type="text/css">
 		.bs-example{
 			margin: 20px;
+		}
+		#info, #rules, #scoring{
+			display: none;
+			
+		}
+		#info div p{
+			padding-left: 20px;
+			padding-right: 10px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		#h li{
+			margin-left: 10px;
+		}
+		@media only screen and (max-width: 720px) {
+			#info, #rules, #scoring{
+			display: block;
+		}
 		}
 	</style>
 
@@ -114,7 +149,6 @@
 					}else{?>
 			<h1 align="center"><a href="ranklist.php?id=1" class="btn btn-lg btn-primary" >See Ranklist</a></h1>
 			<?php
-
 					}
 				}else{
 			?>
@@ -143,10 +177,10 @@
 			?>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			
-				<h3><ul class="nav navbar-nav navbar-right">
-						<li><a class="page-scroll" href="#info"><font color="black">Info &nbsp;</font></a></li>
-						<li><a class="page-scroll" href="#rules"><font color="black">Rules &nbsp;</font></a></li>
-						<li><a class="page-scroll" href="#scoring"><font color="black">Scoring </font></a></li>
+				<h3><ul class="nav navbar-nav " id="h">
+						<li><a  id = "i" class="btn btn-lg btn-info btn-block" href="#info"><font color="black">Info &nbsp;</font></a></li>
+						<li><a  id = "r" class="btn btn-lg btn-info btn-block" href="#rules"><font color="black">Rules &nbsp;</font></a></li>
+						<li><a  id = "s" class="btn btn-lg btn-info btn-block" href="#scoring"><font color="black">Scoring </font></a></li>
 					</ul>
 				</h3>	
 			</div>
@@ -156,7 +190,7 @@
 		</div> <!-- jumbotron-->
 		<section id="info">
 		<div style="background: #10f1f1" class="jumbotron">
-			<h1 align="center"> Info <h1>
+			<h1 align="center"> Info </h1>
 		<p>
 		Questionnaire is a CMS(content management system) where we can organize online tests.<br\>
 		
