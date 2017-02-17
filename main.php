@@ -5,8 +5,8 @@ session_start();
 $con = mysql_connect('localhost','root','') or die("Unable to connect to MySQL");
 $a=mysql_select_db('questionnaire', $con) or die("Unable to select the database");
 $result1=mysql_query("select * from question");
-?>
 
+?>
 <?php
 if(isset($_POST['submit']))
 {
@@ -18,6 +18,7 @@ if (!$con)
   }
   $option=$_POST['optionsRadios'];
   $ques="q"."$_GET[data]";
+
   
   $roll=$_SESSION['user'];
   //$roll=$_GET['roll'];
@@ -32,16 +33,20 @@ if (!$con)
 						  
 				$rown=$_GET['data'];
 				$rown2=$rown+1;
-				$queryn="main.php?data="."$rown2";  
+				$queryn="main.php?data="."$rown2";
+
 				header("location:$queryn");
+
+    
 }
   include "connectdb.php";
+  date_default_timezone_set("Asia/Kolkata");
   $rollno=$_SESSION['user'];
   $query="select user from feedback where user=$rollno";
   //echo $query;
   $result = mysqli_query($con,$query);
   $rows=mysqli_num_rows($result);
-  echo $rows;
+  //echo $rows;
   if ($rows == 0) {
       
       $query="insert into feedback(user,start) values($rollno,'finish')";
@@ -49,6 +54,60 @@ if (!$con)
     }
     if(!isset($_SESSION['start']))
         header("location: start.php"); 
+
+    $query = "select start_time from timer where rollno=$rollno";
+    $result = mysqli_query($con, $query);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    
+    if(! $row) {
+      
+      $p = date("Y-m-d H:i:s");
+      $t = $p;     
+      $start_time = $t;
+      $t = strtotime($t);
+      $t = $t + 2*(60);
+      $end_time = date('Y-m-d H:i:s', $t);
+      
+      $query1 = "INSERT INTO timer VALUES ($rollno,'$start_time', '$end_time')";
+      $result = mysqli_query($con, $query1) or die ("error");
+      
+      $query1 = "SELECT end_time FROM timer";
+      $result = mysqli_query($con, $query1) or die ("error");
+      $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+      
+      $p = date("Y-m-d H:i:s");
+      $ts1 = new DateTime($row['end_time']);
+      $ts2 = new DateTime($p);
+      
+      $diff = $ts2->diff($ts1);
+      if(strtotime($row['end_time'])<strtotime($p))
+      {
+        $_SESSION['time'] = "00:00";
+      }
+      else
+        $_SESSION['time'] = $diff->i.":".$diff->s;
+      
+      } 
+
+    else {
+      $query1 = "SELECT end_time FROM timer";
+      $result = mysqli_query($con, $query1) or die ("error");
+      $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+      
+      $p = date("Y-m-d H:i:s");
+      $ts1 = new DateTime($row['end_time']);
+      $ts2 = new DateTime($p);
+      //echo "<br>current time: ".$p;
+      $diff = $ts2->diff($ts1);
+      if(strtotime($row['end_time'])<strtotime($p))
+      {
+        $_SESSION['time'] = "00:00";
+      }
+      else
+        $_SESSION['time'] = $diff->i.":".$diff->s;
+      
+      }
+    
 ?>
 
 
@@ -77,7 +136,7 @@ if (!$con)
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	
+	<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#myModal").on('show.bs.modal', function(event){
@@ -85,12 +144,88 @@ if (!$con)
 				var titleData = button.data('title'); // Extract value from data-* attributes
 				$(this).find('.modal-title').text(titleData);
 			});
+
+      
+
+      var myVar = setInterval(myTimer ,1000);
+      var data = "<?php echo $_SESSION['time']; ?>";
+      var data = data.split(":");
+      var p = data[0];
+      var q = data[1];
+      var minutes = parseInt(p);
+      var seconds = parseInt(q);
+      
+      function myTimer() {
+        
+        
+        if(seconds==0 && minutes!=0)
+        {
+          
+          var data = minutes.toString()+":0"+seconds.toString();
+          document.getElementById("timmer").innerHTML = "Time Left "+data
+          
+          minutes -= 1;
+          seconds = 59;
+          
+        }
+        else{
+          if(seconds<10 && minutes>10)
+          {
+            var data = minutes.toString()+":0"+seconds.toString();
+          }
+          else if(seconds>10 && minutes<10){
+                var data = "0"+minutes.toString()+":"+seconds.toString();
+          }
+          else if(seconds<10 && minutes < 10){
+            var data = "0"+minutes.toString()+":0"+seconds.toString();
+          }
+          else if(seconds==10 && minutes < 10){
+            var data = "0"+minutes.toString()+":"+seconds.toString();
+          }
+          else if(seconds<10 && minutes == 10){
+            var data = minutes.toString()+":0"+seconds.toString();
+          }
+          else{
+            var data = minutes.toString()+":"+seconds.toString();
+          }
+
+          document.getElementById("timmer").innerHTML = "Time Left "+data;
+        }
+        $("#timmer").show();
+        if(seconds==0 && minutes==0)
+        {
+           
+           var data = "0"+minutes.toString()+":0"+seconds.toString();
+           document.getElementById("timmer").innerHTML = "Time Left "+data;
+           alert("timeout");
+           clearTimeout(myVar);
+           window.location="final.php";
+        }
+        seconds--;
+      } 
 		});
-	</script>
-	<style type="text/css">
+
+  </script>
+	
+
+
+
+  <style type="text/css">
 		.bs-example{
 			margin: 20px;
 		}
+    #timmer{
+      
+      font-family: 'Trirong', sans-serif;
+      font-size: 30px;
+      border: 3px solid #abc;
+      border-radius: 5px;
+      padding: 5px;
+      box-shadow:0px 0px 10px #888;
+      background-color: #888;
+      color: white;
+    }
+    
 	</style>
 
   
@@ -140,14 +275,12 @@ if (!$con)
                 }
               ?>
 
-              
-
+             
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
-
-      
+     
       <nav>
 
 
@@ -194,12 +327,13 @@ if (!$con)
       <nav>
         <ul class=\"pager\">
           <li class=\"previous\"><a href=\"$queryp\"><span aria-hidden=\"true\">&larr;</span> Previous</a></li>
+          <span id='timmer' style='display:none'> </span>
           <li class=\"next\"><a href=\"$queryn\">Next <span aria-hidden=\"true\">&rarr;</span></a></li>
         </ul>
       </nav>
       <div class=\"jumbotron\">
-	  
-		
+	   
+		  
         <h2>Question No.".$row['id']."</h2>
         <p>".$row['question']."</p>
 		<form name=\"form1\" method=\"post\" action=\"\">

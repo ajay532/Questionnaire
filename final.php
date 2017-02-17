@@ -27,7 +27,7 @@
 	$query="select user from feedback where user=$rollno";
 	$result = mysqli_query($con,$query);
 	$rows=mysqli_num_rows($result);
-	echo $rows;
+	//echo $rows;
 	if ($rows == 0) {
 			
 			$query="insert into feedback(user,start) values($rollno,'finish')";

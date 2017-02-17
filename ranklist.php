@@ -183,7 +183,6 @@
 					<td>$que2[correct]</td>		 
 				</tr>
 				";
-
 			}
 				?>
 						
@@ -209,7 +208,6 @@
               <li><a href=\"ranklist.php?id=4\">4</a></li>
 			  <li><a href=\"ranklist.php?id=5\">5</a></li>
               <li><a href=\"ranklist.php?id=6\">>></a></li>
-
             </ul>
 		</div>
 		<div class=\"col-md-4\">

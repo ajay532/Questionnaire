@@ -17,9 +17,10 @@
 		if($rows==1){
 			header("location: home.php");
 		}
+    
 	}
-
-
+  
+  
 ?>
 
 

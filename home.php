@@ -3,8 +3,9 @@
 	
 	if(isset($_SESSION['user'])){
 		include "connectdb.php";
-
+		
 	}
+	
 ?>
 <!DOCTYPE html>
 <html lang="en">
